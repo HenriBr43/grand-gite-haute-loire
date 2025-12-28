@@ -29,6 +29,10 @@ header {
     text-align: center;
 }
 
+header h1 {
+    margin-bottom: 12px; /* ajustez la valeur selon le rendu souhaité */
+}
+
 header .slogan {
     font-style: italic;
     margin-top: 5px;
@@ -88,6 +92,20 @@ section {
 
 .gite h3 {
     color: #2e7d32;
+}
+
+.gite img {
+    width: 100%;
+    height: 200px;      /* ajustez la hauteur selon le rendu souhaité */
+    object-fit: cover;  /* recadre l'image sans la déformer */
+    border-radius: 6px;
+}
+
+/* mobile */
+@media (max-width: 480px) {
+    .gite img {
+        height: 150px;
+    }
 }
 
 /* =====================
