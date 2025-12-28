@@ -2,78 +2,167 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- ajouté -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gîtes en Haute-Loire</title>
     <meta name="description" content="Découvrez nos 3 gîtes en Haute-Loire, au cœur de la nature. Calme, confort et authenticité pour vos vacances.">
-    <link rel="icon" href="favicon.ico"> 
+    <!-- Lien vers le fichier CSS principal -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- STYLE SPÉCIFIQUE À L'ACCUEIL (Pour la grille et les grandes images) -->
+    <style>
+        /* 1. On force la page à prendre plus de largeur sur l'accueil uniquement */
+        main {
+            max-width: 95% !important; /* Occupe 95% de l'écran */
+        }
+
+        /* 2. On transforme la liste en une Grille moderne */
+        .gites {
+            display: grid;
+            /* Crée 3 colonnes de taille égale qui s'adaptent */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 40px; /* Espace entre les cartes */
+        }
+
+        /* 3. On améliore le look de la "carte" */
+        .gite {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* S'assure que les 3 cartes ont la même hauteur */
+            border-radius: 15px; /* Arrondis plus prononcés */
+            overflow: hidden; /* Important pour que l'image suive l'arrondi */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            padding: 0; /* Important : on enlève le padding par défaut pour coller l'image aux bords */
+        }
+
+        /* Petit effet au survol de la carte entière */
+        .gite:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        /* 4. Intégration de l'image (Plus haute et immersive) */
+        .gite img {
+            height: 300px; /* On augmente la hauteur (c'était 200px) */
+            width: 100%;
+            object-fit: cover; /* Recadre proprement */
+            border-bottom: none; /* On enlève la bordure pour un look "photo" pur */
+            margin: 0; /* Sécurité */
+            /* Petit effet de zoom dans l'image au survol */
+            transition: transform 0.5s ease;
+        }
+
+        .gite:hover img {
+            transform: scale(1.05); /* Zoom léger sur l'image */
+        }
+
+        /* 5. Le contenu sous l'image */
+        .gite-content {
+            padding: 25px;
+            flex-grow: 1; /* Pousse le bouton vers le bas pour qu'ils soient alignés */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: white;
+            position: relative; /* Pour gérer la superposition */
+            z-index: 1; /* Reste au dessus de l'image */
+        }
+
+        .gite h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2e7d32;
+        }
+        
+        /* Centrer le texte de présentation en haut de page */
+        .presentation {
+            max-width: 800px;
+            margin: 0 auto 50px auto; /* Centre le bloc et ajoute de l'espace sous le texte */
+            text-align: center;
+            font-size: 1.1em;
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Nos gîtes en Haute-Loire</h1>
+    <!-- LE HEADER EST GÉRÉ PAR JAVASCRIPT (layout.js) -->
+    <div id="header-placeholder"></div>
 
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="gite1.html">Gîte 1</a>
-        <a href="gite2.html">Gîte 2</a>
-        <a href="gite3.html">Gîte 3</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <main>
 
-<main>
+        <!-- Présentation -->
+        <section class="presentation">
+            <h2>Bienvenue</h2>
+            <p>
+                Nous vous proposons <strong>trois gîtes tout confort en Haute-Loire</strong>,
+                situés dans un environnement calme et naturel.
+                Que vous soyez en famille, entre amis ou en couple,
+                nos gîtes sont idéals pour se ressourcer.
+            </p>
+        </section>
 
-    <!-- Présentation -->
-    <section class="presentation">
-        <h2>Bienvenue</h2>
-        <p>
-            Nous vous proposons <strong>trois gîtes tout confort en Haute-Loire</strong>,
-            situés dans un environnement calme et naturel.
-            Que vous soyez en famille, entre amis ou en couple,
-            nos gîtes sont idéals pour se ressourcer.
-        </p>
-    </section>
+        <!-- Liste des gîtes -->
+        <section class="gites">
+            
+            <!-- GÎTE 1 -->
+            <article class="gite">
+                <!-- Image corrigée avec slash / -->
+                <img src="images/sources/Ch1-714 - lits.JPG" alt="Gîte 1 – Les Sources">
+                <div class="gite-content">
+                    <div>
+                        <h3>Gîte 1 – Les Sources</h3>
+                        <p>Gîte chaleureux pour 4 personnes, avec jardin et terrasse. Un havre de paix pour se retrouver.</p>
+                    </div>
+                    <a href="lessources.html" class="btn">Découvrir</a>
+                </div>
+            </article>
 
-    <!-- Liste des gîtes -->
-    <section class="gites">
-        <article class="gite">
-            <h3>Gîte 1 – Les Sources</h3>
-            <img src="images\sources\Ch1-714 - lits.JPG" alt="Gîte 1 – Les Sources">
-            <p>Gîte xxxx  chaleureux pour 4 personnes, avec jardin et terrasse.</p>
-            <a href="lessources.html" class="btn">Découvrir</a>
-        </article>
+            <!-- GÎTE 2 -->
+            <article class="gite">
+                <img src="images/gite2.jpg" alt="Gîte 2 – Estaou">
+                <div class="gite-content">
+                    <div>
+                        <h3>Gîte 2 – Estaou</h3>
+                        <p>Gîte spacieux pour 6 personnes, idéal pour les séjours en groupe ou les grandes familles.</p>
+                    </div>
+                    <a href="estaou.html" class="btn">Découvrir</a>
+                </div>
+            </article>
 
-        <article class="gite">
-            <h3>Gîte 2 – Estaou</h3>
-            <img src="images/gite2.jpg" alt="Gîte 2 – Estaou">
-            <p>Gîte spacieux pour 6 personnes, idéal pour les séjours en groupe.</p>
-            <a href="estaou.html" class="btn">Découvrir</a>
-        </article>
+            <!-- GÎTE 3 -->
+            <article class="gite">
+                <img src="images/gite3.jpg" alt="Gîte 3 – Rabiouze">
+                <div class="gite-content">
+                    <div>
+                        <h3>Gîte 3 – Rabiouze</h3>
+                        <p>Petit gîte pour 2 personnes, parfait pour un séjour romantique au coin du feu.</p>
+                    </div>
+                    <a href="rabiouze.html" class="btn">Découvrir</a>
+                </div>
+            </article>
 
-        <article class="gite">
-            <h3>Gîte 3 – Rabiouze</h3>
-            <img src="images/gite3.jpg" alt="Gîte 3 – Rabiouze">
-            <p>Petit gîte pour 2 personnes, parfait pour un séjour romantique.</p>
-            <a href="rabiouze.html" class="btn">Découvrir</a>
-        </article>
-    </section>
+        </section>
 
-    <!-- Région -->
-    <section class="region">
-        <h2>La Haute-Loire</h2>
-        <p>
-            La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
-            des villages typiques et un patrimoine naturel exceptionnel.
-            Un cadre idéal pour des vacances reposantes.
-        </p>
-    </section>
+        <!-- Région -->
+        <section class="region">
+            <div style="text-align:center; max-width:800px; margin:40px auto 0 auto;">
+                <h2>La Haute-Loire</h2>
+                <p>
+                    La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
+                    des villages typiques et un patrimoine naturel exceptionnel.
+                    Un cadre idéal pour des vacances reposantes.
+                </p>
+            </div>
+        </section>
 
-</main>
+    </main>
 
-<footer>
-    <p>© 2025 – Gîtes en Haute-Loire</p>
-</footer>
+    <!-- LE FOOTER EST GÉRÉ PAR JAVASCRIPT (layout.js) -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPT INDISPENSABLE POUR AFFICHER LE MENU ET LE PIED DE PAGE -->
+    <script src="layout.js"></script>
 
 </body>
 </html>
