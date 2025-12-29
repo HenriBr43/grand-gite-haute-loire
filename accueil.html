@@ -15,6 +15,22 @@
             max-width: 95% !important;
         }
 
+        /* AJOUT : Image de fond semi-transparente */
+        body::before {
+            content: "";
+            position: fixed; /* L'image reste fixe quand on scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Mise à jour du chemin de l'image */
+            background-image: url('images/logos/vueSatellite.png');
+            background-size: cover; /* Couvre tout l'écran */
+            background-position: center;
+            opacity: 0.4; /* Opacité à 40% pour l'effet semi-transparent */
+            z-index: -1; /* Place l'image derrière le contenu */
+        }
+
         /* 2. Grille des gîtes */
         .gites {
             display: grid;
@@ -138,13 +154,18 @@
             display: inline-block;
             background-color: #e8f5e9; /* Fond vert très clair */
             color: #2e7d32;
+            padding: 4px 8px;
+            border-radius: 4px;
             font-size: 0.8em;
-            font-weight: bold;  
+            font-weight: bold;
             border: 1px solid #c8e6c9;
         }
 
         /* NOUVEAU : Style pour les images de logos */
         .badge-img {
+            height: 20px; /* RÉDUIT DE 30px À 20px */
+            width: auto;
+            object-fit: contain;
             display: block;
         }
 
@@ -154,12 +175,16 @@
             border-color: #e0e0e0;
         }
         
-        /* Centrer le texte de présentation */
-        .presentation {
+        /* Modifié : Ajout d'un fond blanc pour la lisibilité sur l'image satellite */
+        .presentation-box {
             max-width: 800px;
             margin: 0 auto 50px auto;
             text-align: center;
             font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.92); /* Fond blanc 92% opaque */
+            padding: 30px; /* Espace intérieur */
+            border-radius: 15px; /* Coins arrondis */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Légère ombre */
         }
     </style>
 </head>
@@ -170,14 +195,18 @@
 
     <main>
 
-        <!-- Présentation -->
-        <section class="presentation">
-            <h2>Bienvenue</h2>
+        <!-- Présentation Fusionnée (Avec fond blanc) -->
+        <section class="presentation-box">
+            <h2>Bienvenue en Haute-Loire</h2>
             <p>
-                Nous vous proposons <strong>trois gîtes tout confort en Haute-Loire</strong>,
-                situés dans un environnement calme et naturel.
-                Que vous soyez en famille, entre amis ou en couple,
-                nos gîtes sont idéals pour se ressourcer.
+                Nous vous proposons <strong>trois gîtes tout confort</strong> situés dans un environnement calme et naturel.
+                Que vous soyez en famille, entre amis ou en couple, nos gîtes sont idéals pour se ressourcer.
+            </p>
+            
+            <p>
+                La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
+                des villages typiques et un patrimoine naturel exceptionnel.
+                Un cadre idéal pour des vacances reposantes.
             </p>
         </section>
 
@@ -197,14 +226,38 @@
                 </div>
             </article>
 
-            <!-- GÎTE 2 -->
+            <!-- GÎTE 2 - ESTAOU -->
             <article class="gite">
                 <img src="images/gite2.jpg" alt="Gîte 2 – Estaou">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte 2 – Estaou</h3>
-                        <span class="localisation-tag">📍 Haute-Loire</span>
-                        <p>Gîte spacieux pour 6 personnes, idéal pour les séjours en groupe ou les grandes familles.</p>
+                        <h3>Gîte 2 – L’Estaou</h3>
+                        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                            <span class="localisation-tag">📍 Hameau le Suc - Arlempdes (43)</span>
+                        </div>
+
+                        <!-- Zone Badges / Labels -->
+                        <div class="logos">
+                            <img src="images/logos/GiteDeFrance_3Epis.png" alt="3 Épis" class="badge-img">
+                            <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
+                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">
+                        </div>
+
+                        <div class="badges">
+                            <span class="badge gris">⛰️ Montagne</span>
+                            <span class="badge gris">❄️ Ski</span>
+                        </div>
+
+                        <!-- Bloc Infos Techniques -->
+                        <ul class="gite-infos">
+                            <li>👥 <strong>15 personnes</strong> / 19 couchages</li>
+                            <li>🛏️ <strong>10 chambres</strong></li>
+                            <li>📐 <strong>350 m²</strong> (dont 60m² salle festive)</li>
+                            <li>🚿 2 Sde, 1 Sdb, 2 WC</li>
+                            <li>🐾 Animaux acceptés</li>
+                        </ul>
+
+                        <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne écurie (vaches) en pierres apparentes. Idéal pour les grands groupes avec sa salle festive réservée.</p>
                     </div>
                     <a href="estaou.html" class="btn">Découvrir</a>
                 </div>
@@ -218,54 +271,37 @@
                         <h3>Gîte 3 – Le Rabiouze</h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc - Arlempdes (43)</span>
-                            <span class="ref-tag">Ref : H43G023327</span>
                         </div>
 
                         <!-- Zone Badges / Labels -->
                         <div class="logos">
-                            <!-- LOGOS (Pense à renommer tes fichiers images correctement) -->
+                            <!-- LOGOS -->
                             <img src="images/logos/GiteDeFrance_4Epis.png" alt="4 Épis" class="badge-img">
                             <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
                             <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">
                         </div>
 
                         <div class="badges">
-                            <!-- Autres badges texte -->
-                            <span class="badge">✨ Tout Compris</span>
+                            <!-- Autres badges texte (Sans Wifi/Télétravail/Tout Compris) -->
                             <span class="badge gris">⛰️ Montagne</span>
                             <span class="badge gris">❄️ Ski</span>
-                            <span class="badge gris">💻 Télétravail</span>
                         </div>
                         
                         <!-- Bloc Infos Techniques -->
                         <ul class="gite-infos">
                             <li>👥 <strong>15 personnes</strong> / 22 couchages</li>
-                            <li>🛏️ <strong>8 chambres</strong></li>
+                            <li>🛏️ <strong>13 chambres</strong></li>
                             <li>📐 <strong>330 m²</strong></li>
-                            <li>🚿 Salles de bain & Salles d'eau</li>
-                            <li>📶 Wifi Gratuit</li>
+                            <li>🚿 1 Sdb, 5 Sde, 5 WC</li>
                             <li>🐾 Animaux acceptés</li>
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;">Ancienne bergerie rénovée. Grands espaces de vie, idéal pour les réunions de famille. Proche château d'Arlempdes.</p>
-                        <p style="font-size:0.8em; color:#777; font-style:italic;">Annonce d'un particulier</p>
+                        <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne bergerie (moutons) en pierres apparentes. Grands espaces de vie, idéal pour les réunions de famille.</p>
                     </div>
                     <a href="rabiouze.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
-        </section>
-
-        <!-- Région -->
-        <section class="region">
-            <div style="text-align:center; max-width:800px; margin:40px auto 0 auto;">
-                <h2>La Haute-Loire</h2>
-                <p>
-                    La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
-                    des villages typiques et un patrimoine naturel exceptionnel.
-                    Un cadre idéal pour des vacances reposantes.
-                </p>
-            </div>
         </section>
 
     </main>
