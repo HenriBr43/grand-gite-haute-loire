@@ -8,15 +8,15 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police plus moderne */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f4f6f5;
+    background-color: #f4f6f5; /* On garde le fond clair pour la lisibilité */
     color: #333;
 }
 
 h1, h2, h3 {
     margin-top: 0;
-    color: #2e7d32; /* Les titres en vert par défaut, c'est plus joli */
+    color: #29612c; /* NOUVEAU VERT SAPIN (Solide) */
 }
 
 img {
@@ -28,22 +28,23 @@ img {
 ===================== */
 
 header {
-    background-color: #2e7d32; /* vert nature */
+    background-color: #29612cc7; /* NOUVEAU VERT SAPIN (Semi-transparent) */
     color: white;
-    padding: 15px 40px; /* Plus d'espace sur les côtés, moins en hauteur */
-    display: flex; /* Permet d'aligner Titre à gauche et Menu à droite */
+    padding: 15px 40px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Jolie ombre portée */
-    position: sticky; /* Le menu reste en haut quand on scroll (optionnel) */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Passe au dessus du reste */
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Petit effet de flou derrière le menu */
 }
 
 header h1 {
     margin: 0;
     font-size: 1.5em;
-    color: white; /* Force le blanc pour le header */
+    color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -53,23 +54,22 @@ header h1 {
 ===================== */
 
 nav {
-    margin-top: 0; /* On enlève la marge car on est en Flexbox */
+    margin-top: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 15px; /* Espace entre les liens */
+    margin-left: 15px;
     font-weight: 600;
     font-size: 0.95em;
-    padding: 8px 16px; /* Donne du volume aux boutons */
-    border-radius: 20px; /* Bords arrondis */
-    transition: all 0.3s ease; /* Animation fluide */
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
-/* Effet au survol et lien actif */
 nav a:hover, nav a.active {
-    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc transparent */
+    background-color: rgba(255, 255, 255, 0.2);
     text-decoration: none;
 }
 
@@ -78,9 +78,10 @@ nav a:hover, nav a.active {
 ===================== */
 
 main {
-    padding: 40px 20px;
-    max-width: 1100px;
+    padding: 20px;
+    max-width: 1600px;
     margin: auto;
+    width: 98%;
 }
 
 section {
@@ -99,23 +100,23 @@ section {
 
 .gite {
     background-color: white;
-    padding: 0; /* On retire le padding pour que l'image touche les bords */
+    padding: 0;
     border-radius: 12px;
     flex: 1;
     min-width: 280px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Ombre plus douce */
-    overflow: hidden; /* Empêche l'image de dépasser des bords arrondis */
-    transition: transform 0.3s ease; /* Petite animation au survol */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
 .gite:hover {
-    transform: translateY(-5px); /* Le gîte remonte un peu au survol */
+    transform: translateY(-5px);
 }
 
 .gite-content {
-    padding: 20px; /* On remet du padding pour le texte seulement */
+    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -129,7 +130,7 @@ section {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-bottom: 3px solid #2e7d32; /* Petite ligne verte sous l'image */
+    border-bottom: 3px solid #29612c; /* Ligne verte harmonisée */
 }
 
 /* Exclure les logos de ce style */
@@ -146,19 +147,19 @@ section {
 
 .btn {
     display: inline-block;
-    margin-top: auto; /* Pousse le bouton vers le bas */
+    margin-top: auto;
     padding: 12px 20px;
-    background-color: #2e7d32;
+    background-color: #29612c; /* Bouton vert sapin */
     color: white;
     text-decoration: none;
-    border-radius: 30px; /* Boutons très arrondis */
+    border-radius: 30px;
     font-weight: bold;
     text-align: center;
     transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #1b5e20; /* Vert plus foncé */
+    background-color: #1a401d; /* Encore plus foncé au survol */
 }
 
 /* =====================
@@ -199,7 +200,7 @@ section {
     transition: transform 0.5s;
 }
 .photo-principale:hover img {
-    transform: scale(1.02); /* Zoom léger effet cinéma */
+    transform: scale(1.02);
 }
 
 .photos-secondaires {
@@ -232,7 +233,7 @@ section {
 
 .infos-cles span {
     font-weight: 600;
-    color: #2e7d32; /* Texte vert */
+    color: #29612c; /* Texte vert sapin */
     font-size: 1.1em;
 }
 
@@ -250,22 +251,22 @@ section {
 .colonne-laterale {
     flex: 1;
     position: sticky;
-    top: 100px; /* Ajusté car le header est sticky */
+    top: 100px;
     min-width: 320px;
 }
 
 /* Widget Réservation */
 .carte-resa {
     background-color: white;
-    border-top: 6px solid #2e7d32;
+    border-top: 6px solid #29612c; /* Bordure verte sapin */
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre plus marquée */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
 }
 
 .carte-resa h3 {
-    color: #2e7d32;
+    color: #29612c;
     margin-bottom: 15px;
     font-size: 1.4em;
 }
@@ -283,8 +284,8 @@ section {
     display: block;
     width: 100%;
     text-align: center;
-    background-color: #ff7043; /* Orange un peu plus doux */
-    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3); /* Ombre orangée */
+    background-color: #ff7043; /* On garde l'orange pour l'action (contraste bien avec le vert sapin) */
+    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3);
 }
 .btn-full:hover {
     background-color: #f4511e;
@@ -292,7 +293,7 @@ section {
 
 /* Bloc Hôte */
 .hote-box {
-    border-left: 4px solid #2e7d32; /* Juste une barre à gauche */
+    border-left: 4px solid #29612c;
     border-right: none;
     border-top: none;
     border-bottom: none;
@@ -324,7 +325,7 @@ section {
 ===================== */
 
 footer {
-    background-color: #333; /* Footer foncé plus moderne */
+    background-color: #333;
     color: #ccc;
     text-align: center;
     padding: 30px;
@@ -337,12 +338,10 @@ footer {
 ===================== */
 
 @media (max-width: 850px) {
-
-    /* Header Mobile */
     header {
         flex-direction: column;
         padding: 20px;
-        position: relative; /* Pas sticky sur mobile */
+        position: relative;
     }
 
     header h1 {
@@ -361,12 +360,10 @@ footer {
         font-size: 0.9em;
     }
 
-    /* Accueil */
     .gites {
         flex-direction: column;
     }
     
-    /* Page Gîte */
     .galerie {
         flex-direction: column;
         height: auto;
