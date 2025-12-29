@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactez-nous - Gîtes à Arlempdes</title>
+    <meta name="description" content="Contactez Henri et Laurent Boyer pour réserver votre gîte en Haute-Loire. Téléphone, email et formulaire de contact.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .animate-up {
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            animation-name: fadeInUp;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        
+        /* Animation rebond pour les icônes */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+
+        /* Style spécifique pour la page contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .contact-info-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Force la même hauteur */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centre le contenu verticalement */
+        }
+
+        .contact-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            display: block;
+            background: #e8f5e9;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s; /* Pour l'animation */
+        }
+        
+        /* Animation au survol de l'icône */
+        .contact-item:hover .contact-icon {
+            animation: bounce 1s;
+            background: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .big-link {
+            font-size: 1.3em;
+            color: #29612c;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .big-link:hover {
+            color: #1b401d;
+            text-decoration: underline;
+        }
+
+        /* Section "Vos Hôtes" */
+        .hotes-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-top: 50px;
+        }
+
+        .hotes-photo {
+            flex: 1;
+            max-width: 450px; /* AGRANDI (était 350px) */
+        }
+        
+        /* Photo rectangulaire avec bords adoucis */
+        .hotes-photo img {
+            width: 100%;
+            border-radius: 15px; /* Bords légèrement moins ronds pour faire plus photo */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: rotate(-2deg); /* Petit effet stylé */
+            transition: transform 0.3s ease;
+        }
+        
+        .hotes-photo img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .hotes-text {
+            flex: 2;
+        }
+        
+        .hotes-text h3 {
+            color: #29612c;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .btn-region {
+            display: inline-block;
+            margin-top: 25px;
+            background-color: #ff7043;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3);
+        }
+        
+        .btn-region:hover {
+            background-color: #f4511e;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid, .hotes-section {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+                text-align: center;
+            }
+            .hotes-photo {
+                margin: 0 auto;
+                max-width: 100%;
+            }
+            .hotes-photo img {
+                transform: rotate(0deg);
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENU (Géré par layout.js) -->
+    <div id="header-placeholder"></div>
+
+    <main>
+
+        <section class="presentation-box animate-up">
+            <h2>Contactez-nous</h2>
+
+        </section>
+
+        <div class="contact-grid">
+            
+            <!-- COORDONNÉES -->
+            <div class="contact-info-box animate-up delay-1">
+                <h3 style="margin-bottom: 30px; color: #29612c;">Nos Coordonnées</h3>
+                
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <p style="color:#666; margin-bottom:5px;">Téléphone (Henri Boyer)</p>
+                    <a href="tel:0768497851" class="big-link">07 68 49 78 51</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <p style="color:#666; margin-bottom:5px;">Email</p>
+                    <a href="mailto:henri-boyer@outlook.fr" target="_blank" class="big-link" style="font-size: 1.1em;">henri-boyer@outlook.fr</a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <p style="color:#666; margin-bottom:5px;">Adresse postale</p>
+                    <strong style="font-size: 1.1em;">85 Impasse Le Garay</strong><br>
+                    43490 Arlempdes<br>
+                    Haute-Loire, Auvergne
+                </div>
+            </div>
+
+            <!-- VOS HÔTES (Histoire) - Contenu centré et espacé pour remplir la case -->
+            <div class="contact-info-box animate-up delay-1" style="text-align: center; background: linear-gradient(to bottom right, #ffffff, #f1f8e9);">
+                <span style="font-size: 3em; display: block; margin-bottom: 10px;">🤝</span>
+                <h3 style="margin-bottom: 20px; color: #29612c;">Votre séjour, notre passion</h3>
+                
+                <p style="font-size: 1.1em; line-height: 1.8; color: #555; margin-bottom: 30px;">
+                    Nous privilégions le <strong>contact direct</strong> pour mieux comprendre vos besoins et organiser au mieux votre venue (réunions de famille, cousinades, besoins d'accessibilité...).
+                </p>
+                
+                <div style="background: white; padding: 20px; border-radius: 8px; border: 1px dashed #29612c; margin-bottom: 30px; text-align: left;">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: #29612c; text-align: center;">Pour votre demande, merci de préciser :</p>
+                    <ul style="margin: 0; padding-left: 20px; color: #555;">
+                        <li>📅 Vos dates souhaitées</li>
+                        <li>👥 Le nombre de personnes (adultes/enfants)</li>
+                        <li>🏡 Le gîte qui vous intéresse (Sources, Estaou, Rabiouze)</li>
+                    </ul>
+                </div>
+
+                <p>
+                    <a href="mailto:henri-boyer@outlook.fr?subject=Demande de réservation Gîte Arlempdes" target="_blank" class="btn btn-full" style="font-size: 1.1em; padding: 15px 30px;">Envoyer une demande par mail</a>
+                </p>
+            </div>
+
+        </div>
+
+        <!-- SECTION HISTOIRE / PHOTO -->
+        <div class="hotes-section animate-up delay-2">
+            <div class="hotes-photo">
+                <!-- Mets ici la photo de ton père et son frère -->
+                <img src="images/henri-et-laurent.jpg" alt="Henri et Laurent Boyer" onerror="this.src='images/logos/vueSatellite.png'">
+            </div>
+            <div class="hotes-text">
+                <h3>Bienvenue chez Henri et Laurent</h3>
+                <p style="margin-bottom: 15px;">
+                    Frères et originaires d'Arlempdes, ce projet nous tenait particulièrement à cœur. Il s’agit de notre <strong>village d’enfance</strong> où nous avons travaillé avec nos parents à la ferme.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    Cette réhabilitation est un moyen pour nous de ne pas laisser à l’abandon ce <strong>patrimoine familial</strong>. Nous avons rénové ces anciennes bergeries et écuries (datant de 1798 et 1882) avec soin, en respectant les pierres apparentes et l'âme des lieux, tout en y apportant le confort moderne et écologique (Label Ecogîte).
+                </p>
+                <p>
+                    Nous serons ravis de vous accueillir et de vous conseiller sur les plus belles balades de notre région.
+                </p>
+                
+                <a href="decouvrir.html" class="btn-region">🌍 Voir les photos de la région</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER (Géré par layout.js) -->
+    <div id="footer-placeholder"></div>
+    <script src="layout.js"></script>
+
+</body>
+</html>

@@ -7,16 +7,16 @@
     <!-- =========================================
          OPTIMISATION SEO (RÉFÉRENCEMENT)
          ========================================= -->
-    <!-- TITRE : Précis et descriptif pour Google -->
+    <!-- TITRE -->
     <title>Gîte Les Sources - Location 9 personnes à Arlempdes (Haute-Loire)</title>
 
-    <!-- DESCRIPTION : Résumé accrocheur pour les résultats de recherche -->
+    <!-- DESCRIPTION -->
     <meta name="description" content="Location gîte de charme 'Les Sources' (9 pers) au cœur du village médiéval d'Arlempdes (43). Maison en pierre unique située dans l'enceinte du château. Idéal famille, pêche, randonnée.">
 
-    <!-- MOTS-CLÉS : Pour aider un peu le référencement -->
+    <!-- MOTS-CLÉS -->
     <meta name="keywords" content="gite les sources arlempdes, location vacances haute loire, gite 9 personnes auvergne, plus beaux villages de france, gite chateau, pêche loire, gite pierre">
 
-    <!-- OPEN GRAPH : Pour un beau partage sur Facebook/WhatsApp -->
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Gîte Les Sources - Arlempdes (Haute-Loire)">
     <meta property="og:description" content="Séjournez dans l'enceinte du château d'Arlempdes ! Gîte authentique pour 9 personnes, classé 3 épis.">
     <meta property="og:image" content="images/sources/Face avant-779.JPG">
@@ -26,153 +26,41 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Style pour les sections de pièces */
-        .piece-section {
-            margin-bottom: 40px; /* Espace entre les groupes de photos */
-        }
-        
-        .piece-section h4 {
-            color: #2e7d32;
-            border-bottom: 2px solid #eee; /* Petite ligne de séparation */
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
+        .piece-section { margin-bottom: 40px; }
+        .piece-section h4 { color: #29612c; border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; font-size: 1.2em; }
+        .galerie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+        .photo-item { break-inside: avoid; }
+        .photo-item img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; transition: transform 0.3s; cursor: pointer; background-color: #eee; }
+        .photo-item img:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .photo-item p { font-size: 0.85em; color: #666; margin-top: 5px; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-        /* Grille photo ajustée */
-        .galerie-grid {
-            display: grid;
-            /* On met 180px min pour essayer d'en caser 4 ou 5 par ligne sur PC */
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px; /* Espace plus fin entre les photos */
-        }
+        /* TABLEAU DES TARIFS */
+        .table-responsive { overflow-x: auto; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .tarifs-table { width: 100%; border-collapse: collapse; background: white; min-width: 500px; }
+        .tarifs-table th { background-color: #29612c; color: white; padding: 15px; text-align: center; font-weight: 600; }
+        .tarifs-table td { padding: 12px 15px; text-align: center; border-bottom: 1px solid #eee; color: #333; }
+        .tarifs-table tr:nth-child(even) { background-color: #f9fbf9; }
+        .tarifs-table tr:hover { background-color: #f1f8e9; }
+        .saison-detail { font-size: 0.85em; color: #666; display: block; margin-top: 5px; font-style: italic; }
 
-        .photo-item {
-            break-inside: avoid;
-        }
+        /* LISTE DES OPTIONS */
+        .options-list { background: white; padding: 25px; border-radius: 8px; border: 1px solid #eee; margin-top: 20px; }
+        .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px 40px; }
+        .option-item { display: flex; justify-content: space-between; border-bottom: 1px dotted #ddd; padding-bottom: 5px; align-items: baseline; }
+        .option-item strong { color: #29612c; }
+        .tarif-note { font-size: 0.9em; background: #fff8e1; border-left: 4px solid #ffb74d; padding: 15px; border-radius: 4px; margin-top: 20px; color: #5d4037; }
 
-        .photo-item img {
-            width: 100%;
-            height: 160px; /* Hauteur un peu plus petite pour voir plus de photos */
-            object-fit: cover;
-            border-radius: 6px;
-            transition: transform 0.3s;
-            cursor: pointer; /* Indique qu'on peut cliquer */
-            background-color: #eee; /* Gris clair en attendant l'image */
-        }
-
-        .photo-item img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .photo-item p {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 5px;
-            text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        /* =========================================
-           STYLE DE LA LIGHTBOX (VUE AGRANDIE)
-           ========================================= */
-        .modal {
-            display: none; /* Caché par défaut */
-            position: fixed;
-            z-index: 2000; /* Au-dessus de tout */
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9); /* Fond noir opaque */
-        }
-
-        /* L'image en grand */
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 85vh; /* 85% de la hauteur de l'écran */
-            border-radius: 4px;
-            object-fit: contain;
-        }
-
-        /* Légende */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-
-        /* Bouton Fermer (X) */
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Boutons Précédent / Suivant */
-        .prev-slide, .next-slide {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0,0,0,0.3); /* Fond léger pour voir les flèches */
-        }
-
-        .next-slide {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        
-        .prev-slide {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev-slide:hover, .next-slide:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        /* Animation zoom */
-        .modal-content, #caption {
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-
-        @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
-        }
+        /* LIGHTBOX */
+        .modal { display: none; position: fixed; z-index: 2000; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); }
+        .modal-content { margin: auto; display: block; max-width: 90%; max-height: 85vh; border-radius: 4px; object-fit: contain; animation-name: zoom; animation-duration: 0.6s; }
+        #caption { margin: auto; display: block; width: 80%; max-width: 700px; text-align: center; color: #ccc; padding: 10px 0; height: 150px; }
+        .close-modal { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .close-modal:hover { color: #bbb; }
+        .prev-slide, .next-slide { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 20px; transition: 0.6s ease; border-radius: 0 3px 3px 0; user-select: none; background-color: rgba(0,0,0,0.3); }
+        .next-slide { right: 0; border-radius: 3px 0 0 3px; }
+        .prev-slide { left: 0; border-radius: 3px 0 0 3px; }
+        .prev-slide:hover, .next-slide:hover { background-color: rgba(0,0,0,0.8); }
+        @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
     </style>
 </head>
 <body>
@@ -184,7 +72,7 @@
 
         <!-- En-tête du gîte -->
         <section class="gite-header">
-            <h2>Les Sources 🌊</h2>
+            <h2>Les Sources ⛲</h2>
             <p class="localisation">📍 Village d’Arlempdes (43) | Ref : H43G006192</p>
         </section>
 
@@ -194,8 +82,8 @@
                 <img class="clickable-img" src="images/sources/Face avant-779.JPG" alt="Façade du gîte Les Sources">
             </div>
             <div class="photos-secondaires">
-                <img class="clickable-img" src="images/sources/Salon cheminee-657.JPG" alt="Salon Cheminée" onerror="this.src='images/sources/Face avant-779.JPG'">
-                <img class="clickable-img" src="images/sources/Jardin vue chateau-818.JPG" alt="Vue Château" onerror="this.src='images/sources/Face avant-779.JPG'">
+                <img class="clickable-img" src="images/sources/Vue terrain vers vallée-890.JPG" alt="Salon Cheminée" >
+                <img class="clickable-img" src="images/sources/Salon cheminée-657.JPG" alt="Vue Château">
             </div>
         </section>
 
@@ -235,6 +123,89 @@
                         <p>Vos hôtes : <strong>Henri et Laurent</strong></p>
                         <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France®.</p>
                     </div>
+                </section>
+                
+                <!-- SECTION TARIFS & PLANNING -->
+                <section id="tarifs">
+                    <h3>Tarifs & Disponibilités 2025</h3>
+                    
+                    <!-- CALENDRIER -->
+                    <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white;">
+                        <div style="background-color: #29612c; color: white; padding: 10px; text-align: center; font-weight: bold;">
+                            📅 Planning des disponibilités
+                        </div>
+                        <!-- Intégration du calendrier Gîtes de France via Open Web Calendar -->
+                        <iframe 
+                            src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fapi.cloudspire.io%2Falfred%2Frooms%2FH43G006192%2Favailabilities%2Fcalendar.ics%3Fremote%3D1%26booking%3D1%26unavailability%3D1%26unconfigured%3D0&skin=fs&tab=month&start_date=now&language=fr&color=gray&v=2" 
+                            width="100%" 
+                            height="500" 
+                            style="border:none;"
+                            title="Calendrier Les Sources"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
+                        </iframe>
+                        <p style="text-align: center; font-size: 0.85em; color: #666; padding: 10px; margin: 0; background: #f9f9f9; border-top: 1px solid #eee;">
+                            * Les dates colorées sont déjà réservées.
+                        </p>
+                    </div>
+
+                    <!-- TABLEAU DES PRIX (Estimations pour 9 pers) -->
+                    <div class="table-responsive">
+                        <table class="tarifs-table">
+                            <thead>
+                                <tr>
+                                    <th>Saison</th>
+                                    <th>Semaine</th>
+                                    <th>Week-end (2 nuits)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Basse Saison
+                                        <span class="saison-detail">Autres périodes</span>
+                                    </td>
+                                    <td>650 €</td>
+                                    <td>450 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Moyenne Saison
+                                        <span class="saison-detail">Mai, Juin, Sept, Vac. Scolaires</span>
+                                    </td>
+                                    <td>850 €</td>
+                                    <td>450 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Haute Saison
+                                        <span class="saison-detail">Juillet, Août, Noël, Nouvel An</span>
+                                    </td>
+                                    <td>1250 €</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size:0.9em; font-style:italic; text-align:right;">* Tarifs indicatifs hors ménage et chauffage</p>
+
+                    <!-- LISTE DES OPTIONS -->
+                    <div class="options-list">
+                        <h4>Suppléments & Options</h4>
+                        <div class="options-grid">
+                            <div class="option-item"><span>🧹 Ménage fin de séjour</span> <strong>80 €</strong></div>
+                            <div class="option-item"><span>🔥 Chauffage</span> <strong>Selon conso.</strong></div>
+                            <div class="option-item"><span>🏛️ Taxe de séjour</span> <strong>0,80 € / adulte / nuit</strong></div>
+                            <div class="option-item"><span>🛏️ Location draps</span> <strong>15 € / lit</strong></div>
+                            <div class="option-item"><span>🧖‍♀️ Linge de toilette</span> <strong>10 € / pers</strong></div>
+                            <div class="option-item"><span>🐾 Supplément Chien</span> <strong>Gratuit</strong></div>
+                            <div class="option-item"><span>🔒 Caution</span> <strong>300 €</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="tarif-note">
+                        <strong>💳 Paiements acceptés :</strong> Chèques, Espèces, Virements. (Pas de Chèques Vacances)
+                    </div>
+
                 </section>
 
                 <section id="equipements">
@@ -377,29 +348,11 @@
                         <p>📅 Arrivée — 📅 Départ</p>
                     </div>
 
-                    <a href="contact.html" class="btn btn-full">Demander une réservation</a>
+                    <a href="contact.html" class="btn btn-full">Demander un devis</a>
                     <p class="small-text">Contactez-nous directement ou passez par l'agence</p>
-                    
-                    <hr>
-                    
-                    <div style="text-align: left; font-size: 0.9em; margin-top: 15px;">
-                        <p><strong>✅ Inclus dans le prix :</strong><br>
-                        Charges, Chauffage, Électricité, Ménage.</p>
-
-                        <p><strong>🛠️ Options (non inclus) :</strong><br>
-                        - Draps 1 pers : 15 € / paire<br>
-                        - Draps 2 pers : 15 € / paire<br>
-                        - Linge de toilette : 15 € / pers<br>
-                        - Linge de maison : 15 € / séjour</p>
-                        
-                        <p><strong>🐾 Animaux :</strong><br>
-                        Supplément 30 € / séjour</p>
-                        
-                        <p><strong>💳 Paiements :</strong><br>
-                        CB, Visa, Espèces, Chèques vacances</p>
-                        
-                        <p><strong>🔒 Caution :</strong> 300 €</p>
-                    </div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+                        <a href="#tarifs" style="color:#2e7d32; text-decoration: underline;">Voir le détail des tarifs</a>
+                    </p>
                 </div>
             </aside>
 
