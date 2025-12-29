@@ -7,19 +7,14 @@
     <!-- =========================================
          OPTIMISATION SEO (RÉFÉRENCEMENT)
          ========================================= -->
-    <!-- Le Titre (Ce qui apparaît en bleu sur Google) -->
     <title>Grands Gîtes de Charme en Haute-Loire | Location Vacances à Arlempdes (43)</title>
+    <meta name="description" content="Découvrez nos 3 gîtes authentiques (9 à 22 personnes) à Arlempdes, classé 'Plus Beaux Villages de France'. Idéal groupes, familles, randonnée et nature en Auvergne.">
+    <meta name="keywords" content="gite haute loire, arlempdes, location vacances 43, gite groupe auvergne, plus beaux villages de france, gite peche, gite randonnée, ecogite, gite montagne, gite famille, grand gite,PMR, Handicap">
 
-    <!-- La Description (Le texte gris sous le lien Google) -->
-    <meta name="description" content="Découvrez nos 3 gîtes authentiques (9 à 15 personnes) à Arlempdes, classé 'Plus Beaux Villages de France'. Idéal groupes, familles, randonnée et nature en Auvergne.">
-
-    <!-- Les Mots-clés -->
-    <meta name="keywords" content="gite haute loire, arlempdes, location vacances 43, gite groupe auvergne, plus beaux villages de france, gite peche, gite randonnée, ecogite">
-
-    <!-- Open Graph (Pour que le lien soit beau sur Facebook/WhatsApp) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Vacances Nature en Haute-Loire - Gîtes Arlempdes">
-    <meta property="og:description" content="3 gîtes de caractère (9-15 pers) dans un cadre exceptionnel. Village médiéval ou pleine nature, à vous de choisir !">
-    <meta property="og:image" content="images/sources/Face avant-779.JPG"> <!-- Image de partage -->
+    <meta property="og:description" content="3 gîtes de caractère (9-22 pers) dans un cadre exceptionnel. Village médiéval ou pleine nature, à vous de choisir !">
+    <meta property="og:image" content="images/sources/Face avant-779.JPG">
     <meta property="og:url" content="https://www.vos-gites-arlempdes.fr/">
     <meta property="og:type" content="website">
 
@@ -33,38 +28,36 @@
             max-width: 95% !important;
         }
 
-        /* AJOUT : Image de fond semi-transparente */
+        /* IMAGE DE FOND (Parallaxe) */
         body::before {
             content: "";
-            position: fixed; /* L'image reste fixe quand on scroll */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Mise à jour du chemin de l'image */
             background-image: url('images/logos/vueSatellite.png');
-            background-size: cover; /* Couvre tout l'écran */
+            background-size: cover;
             background-position: center;
-            opacity: 0.4; /* Opacité à 40% pour l'effet semi-transparent */
-            z-index: -1; /* Place l'image derrière le contenu */
+            opacity: 0.4; /* Effet semi-transparent */
+            z-index: -1;
         }
 
-        /* 2. Grille des gîtes */
+        /* 2. Grille des gîtes (3 colonnes) */
         .gites {
             display: grid;
-            /* FORCE L'AFFICHAGE SUR 3 COLONNES CÔTE À CÔTE */
             grid-template-columns: 1fr 1fr 1fr; 
-            gap: 30px; /* Espace entre les cartes */
+            gap: 30px;
         }
         
-        /* SÉCURITÉ MOBILE : Si l'écran est petit (tablette/téléphone), on les empile */
+        /* Mobile : 1 colonne */
         @media (max-width: 1000px) {
             .gites {
-                grid-template-columns: 1fr; /* Une seule colonne */
+                grid-template-columns: 1fr;
             }
         }
 
-        /* 3. Design de la carte */
+        /* 3. Design de la carte Gîte */
         .gite {
             display: flex;
             flex-direction: column;
@@ -77,60 +70,18 @@
             padding: 0;
         }
 
-    <title>Gîtes en Haute-Loire</title>
-    <meta name="description" content="Découvrez nos 3 gîtes en Haute-Loire, au cœur de la nature. Calme, confort et authenticité pour vos vacances.">
-    <!-- Lien vers le fichier CSS principal -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- STYLE SPÉCIFIQUE À L'ACCUEIL (Pour la grille et les grandes images) -->
-    <style>
-        /* 1. On force la page à prendre plus de largeur sur l'accueil uniquement */
-        main {
-            max-width: 95% !important; /* Occupe 95% de l'écran */
-        }
-
-        /* 2. On transforme la liste en une Grille moderne */
-        .gites {
-            display: grid;
-            /* Crée 3 colonnes de taille égale qui s'adaptent */
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 40px; /* Espace entre les cartes */
-        }
-
-        /* 3. On améliore le look de la "carte" */
-        .gite {
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* S'assure que les 3 cartes ont la même hauteur */
-            border-radius: 15px; /* Arrondis plus prononcés */
-            overflow: hidden; /* Important pour que l'image suive l'arrondi */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            padding: 0; /* Important : on enlève le padding par défaut pour coller l'image aux bords */
-        }
-
-        /* Petit effet au survol de la carte entière */
         .gite:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        /* 4. Images */
+        /* Images des cartes */
         .gite img {
             height: 300px;
             width: 100%;
             object-fit: cover;
             border-bottom: none;
             margin: 0;
-        /* 4. Intégration de l'image (Plus haute et immersive) */
-        .gite img {
-            height: 300px; /* On augmente la hauteur (c'était 200px) */
-            width: 100%;
-            object-fit: cover; /* Recadre proprement */
-            border-bottom: none; /* On enlève la bordure pour un look "photo" pur */
-            margin: 0; /* Sécurité */
-            /* Petit effet de zoom dans l'image au survol */
             transition: transform 0.5s ease;
         }
 
@@ -138,25 +89,16 @@
             transform: scale(1.05);
         }
 
-        /* 5. Contenu texte */
+        /* Contenu texte des cartes */
         .gite-content {
             padding: 25px;
             flex-grow: 1;
-            transform: scale(1.05); /* Zoom léger sur l'image */
-        }
-
-        /* 5. Le contenu sous l'image */
-        .gite-content {
-            padding: 25px;
-            flex-grow: 1; /* Pousse le bouton vers le bas pour qu'ils soient alignés */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: white;
             position: relative;
             z-index: 1;
-            position: relative; /* Pour gérer la superposition */
-            z-index: 1; /* Reste au dessus de l'image */
         }
 
         .gite h3 {
@@ -165,14 +107,14 @@
             color: #2e7d32;
         }
 
-        /* NOUVEAU : Style pour les infos techniques (lits, surface...) */
+        /* Infos techniques (lits, surface...) */
         .gite-infos {
-            list-style: none; /* Enlève les points moches */
+            list-style: none;
             padding: 0;
             margin: 15px 0;
             font-size: 0.9em;
             color: #555;
-            background-color: #f9f9f9; /* Petit fond gris */
+            background-color: #f9f9f9;
             padding: 10px;
             border-radius: 8px;
             border: 1px solid #eee;
@@ -198,16 +140,15 @@
             margin-bottom: 10px;
         }
 
-        /* Style des badges (Épis, Labels...) */
+        /* Badges et Logos */
         .badges {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
-            align-items: center; /* Aligne les images et le texte verticalement */
+            align-items: center;
         }
 
-        /* Logos côte à côte */
         .logos {
             display: flex;
             gap: 10px;
@@ -221,7 +162,7 @@
 
         .badge {
             display: inline-block;
-            background-color: #e8f5e9; /* Fond vert très clair */
+            background-color: #e8f5e9;
             color: #2e7d32;
             padding: 4px 8px;
             border-radius: 4px;
@@ -230,40 +171,29 @@
             border: 1px solid #c8e6c9;
         }
 
-        /* NOUVEAU : Style pour les images de logos */
-        .badge-img {
-            height: 25px; /* Ajusté pour bien voir le logo */
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
         .badge.gris {
             background-color: #f5f5f5;
             color: #666;
             border-color: #e0e0e0;
         }
+
+        .badge-img {
+            height: 25px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
         
-        /* Modifié : Ajout d'un fond blanc pour la lisibilité sur l'image satellite */
+        /* Boite de présentation (Fond blanc pour lisibilité) */
         .presentation-box {
-            max-width: 1000px; /* Largeur augmentée */
+            max-width: 1000px;
             margin: 0 auto 50px auto;
             text-align: center;
             font-size: 1.1em;
-            background-color: rgba(255, 255, 255, 0.92); /* Fond blanc 92% opaque */
-            padding: 30px; /* Espace intérieur */
-            border-radius: 15px; /* Coins arrondis */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Légère ombre */
-            margin-bottom: 10px;
-            color: #2e7d32;
-        }
-        
-        /* Centrer le texte de présentation en haut de page */
-        .presentation {
-            max-width: 800px;
-            margin: 0 auto 50px auto; /* Centre le bloc et ajoute de l'espace sous le texte */
-            text-align: center;
-            font-size: 1.1em;
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -274,7 +204,7 @@
 
     <main>
 
-        <!-- Présentation Fusionnée (Tout dans la même boite, pas de <br> inutiles) -->
+        <!-- Présentation Fusionnée -->
         <section class="presentation-box">
             <h2>Bienvenue en Haute-Loire</h2>
             <p>
@@ -288,23 +218,14 @@
             </p>
             <p style="margin-top: 15px;">
                 Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel exceptionnel pour des vacances reposantes.
-        <!-- Présentation -->
-        <section class="presentation">
-            <h2>Bienvenue</h2>
-            <p>
-                Nous vous proposons <strong>trois gîtes tout confort en Haute-Loire</strong>,
-                situés dans un environnement calme et naturel.
-                Que vous soyez en famille, entre amis ou en couple,
-                nos gîtes sont idéals pour se ressourcer.
             </p>
         </section>
 
         <!-- Liste des gîtes -->
         <section class="gites">
             
-            <!-- GÎTE 1 - LES SOURCES (9 pers) -->
+            <!-- GÎTE 1 - LES SOURCES -->
             <article class="gite">
-                <!-- Image façade -->
                 <img src="images/sources/Face avant-779.JPG" alt="Façade du gîte Les Sources">
                 <div class="gite-content">
                     <div>
@@ -314,11 +235,10 @@
                             <span class="ref-tag">Ref : H43G006192</span>
                         </div>
 
-                        <!-- Zone Logos Spécifiques -->
+                        <!-- Logos -->
                         <div class="logos">
-                            <!-- 3 épis + Plus beau village -->
                             <img src="images/logos/GiteDeFrance_3Epis.png" alt="3 Épis" class="badge-img">
-                            <img src="images/logos/Les_Plus_Beaux_Villages_de_France_logo.png" alt="Plus beaux villages de France" class="badge-img" style="height:35px;">
+                            <img src="images/logos/Les_Plus_Beaux_Villages_de_France_logo.png" alt="Plus beau village de France" class="badge-img" style="height:35px;">
                             <img src="images/logos/peche.jpg" alt="Label Pêche" class="badge-img">
                         </div>
 
@@ -326,9 +246,10 @@
                             <span class="badge">🏰 Patrimoine</span>
                             <span class="badge gris">⛰️ Montagne</span>
                             <span class="badge gris">❄️ Ski</span>
+                            <span class="badge gris">🎣 Pêche</span>
                         </div>
 
-                        <!-- Bloc Infos Techniques -->
+                        <!-- Infos -->
                         <ul class="gite-infos">
                             <li>👥 <strong>9 personnes</strong></li>
                             <li>🛏️ <strong>3 chambres</strong></li>
@@ -338,23 +259,14 @@
                         </ul>
 
                         <p style="font-size:0.9em; margin-bottom:10px;">Maison en pierres apparentes située exceptionnellement dans l'enceinte des remparts du château fort.</p>
-            <!-- GÎTE 1 -->
-            <article class="gite">
-                <!-- Image corrigée avec slash / -->
-                <img src="images/sources/Ch1-714 - lits.JPG" alt="Gîte 1 – Les Sources">
-                <div class="gite-content">
-                    <div>
-                        <h3>Gîte 1 – Les Sources</h3>
-                        <p>Gîte chaleureux pour 4 personnes, avec jardin et terrasse. Un havre de paix pour se retrouver.</p>
                     </div>
                     <a href="lessources.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
-            <!-- GÎTE 2 - ESTAOU (15 pers) -->
+            <!-- GÎTE 2 - ESTAOU -->
             <article class="gite">
-                <!-- Image façade -->
-                <img src="images/estaou/Face avant-433.JPG" alt="Façade du gîte L'Estaou">
+                <img src="images/estaou/Face avant retenue-408 bis.JPG" alt="Façade du gîte L'Estaou">
                 <div class="gite-content">
                     <div>
                         <h3>Gîte 2 – L’Estaou</h3>
@@ -363,7 +275,7 @@
                             <span class="ref-tag">Ref : H43G006238</span>
                         </div>
 
-                        <!-- Zone Logos -->
+                        <!-- Logos -->
                         <div class="logos">
                             <img src="images/logos/GiteDeFrance_3Epis.png" alt="3 Épis" class="badge-img">
                             <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
@@ -375,7 +287,7 @@
                             <span class="badge gris">❄️ Ski</span>
                         </div>
 
-                        <!-- Bloc Infos Techniques -->
+                        <!-- Infos -->
                         <ul class="gite-infos">
                             <li>👥 <strong>15 personnes</strong> / 19 couchages</li>
                             <li>🛏️ <strong>10 chambres</strong></li>
@@ -385,22 +297,14 @@
                         </ul>
 
                         <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne écurie (vaches) en pierres apparentes. Idéal pour les grands groupes avec sa salle festive réservée.</p>
-            <!-- GÎTE 2 -->
-            <article class="gite">
-                <img src="images/gite2.jpg" alt="Gîte 2 – Estaou">
-                <div class="gite-content">
-                    <div>
-                        <h3>Gîte 2 – Estaou</h3>
-                        <p>Gîte spacieux pour 6 personnes, idéal pour les séjours en groupe ou les grandes familles.</p>
                     </div>
                     <a href="estaou.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
-            <!-- GÎTE 3 - RABIOUZE (15 pers) -->
+            <!-- GÎTE 3 - RABIOUZE -->
             <article class="gite">
-                <!-- Image façade -->
-                <img src="images/gite3-grand.jpg" alt="Façade du gîte Le Rabiouze">
+                <img src="images/rabiouze/Face avant-retenue-rabiouze-0583.JPG" alt="Façade du gîte Le Rabiouze">
                 <div class="gite-content">
                     <div>
                         <h3>Gîte 3 – Le Rabiouze</h3>
@@ -409,7 +313,7 @@
                             <span class="ref-tag">Ref : H43G023327</span>
                         </div>
 
-                        <!-- Zone Logos (4 épis) -->
+                        <!-- Logos (4 épis) -->
                         <div class="logos">
                             <img src="images/logos/GiteDeFrance_4Epis.png" alt="4 Épis" class="badge-img">
                             <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
@@ -417,12 +321,11 @@
                         </div>
 
                         <div class="badges">
-                            <!-- Autres badges texte -->
                             <span class="badge gris">⛰️ Montagne</span>
                             <span class="badge gris">❄️ Ski</span>
                         </div>
                         
-                        <!-- Bloc Infos Techniques -->
+                        <!-- Infos -->
                         <ul class="gite-infos">
                             <li>👥 <strong>15 personnes</strong> / 22 couchages</li>
                             <li>🛏️ <strong>13 chambres</strong></li>
@@ -432,30 +335,11 @@
                         </ul>
 
                         <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne bergerie (moutons) en pierres apparentes. Grands espaces de vie, idéal pour les réunions de famille.</p>
-            <!-- GÎTE 3 -->
-            <article class="gite">
-                <img src="images/gite3.jpg" alt="Gîte 3 – Rabiouze">
-                <div class="gite-content">
-                    <div>
-                        <h3>Gîte 3 – Rabiouze</h3>
-                        <p>Petit gîte pour 2 personnes, parfait pour un séjour romantique au coin du feu.</p>
                     </div>
                     <a href="rabiouze.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
-        </section>
-
-        <!-- Région -->
-        <section class="region">
-            <div style="text-align:center; max-width:800px; margin:40px auto 0 auto;">
-                <h2>La Haute-Loire</h2>
-                <p>
-                    La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
-                    des villages typiques et un patrimoine naturel exceptionnel.
-                    Un cadre idéal pour des vacances reposantes.
-                </p>
-            </div>
         </section>
 
     </main>
@@ -464,7 +348,6 @@
     <div id="footer-placeholder"></div>
 
     <!-- SCRIPT INDISPENSABLE -->
-    <!-- SCRIPT INDISPENSABLE POUR AFFICHER LE MENU ET LE PIED DE PAGE -->
     <script src="layout.js"></script>
 
 </body>
