@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Police plus moderne */
     line-height: 1.6;
     background-color: #f4f6f5;
     color: #333;
@@ -16,26 +16,36 @@ body {
 
 h1, h2, h3 {
     margin-top: 0;
+    color: #2e7d32; /* Les titres en vert par défaut, c'est plus joli */
+}
+
+img {
+    max-width: 100%;
 }
 
 /* =====================
-   HEADER
+   HEADER (MODERNE)
 ===================== */
 
 header {
     background-color: #2e7d32; /* vert nature */
     color: white;
-    padding: 30px 20px;
-    text-align: center;
+    padding: 15px 40px; /* Plus d'espace sur les côtés, moins en hauteur */
+    display: flex; /* Permet d'aligner Titre à gauche et Menu à droite */
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Jolie ombre portée */
+    position: sticky; /* Le menu reste en haut quand on scroll (optionnel) */
+    top: 0;
+    z-index: 1000; /* Passe au dessus du reste */
 }
 
 header h1 {
-    margin-bottom: 12px; /* ajustez la valeur selon le rendu souhaité */
-}
-
-header .slogan {
-    font-style: italic;
-    margin-top: 5px;
+    margin: 0;
+    font-size: 1.5em;
+    color: white; /* Force le blanc pour le header */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* =====================
@@ -43,18 +53,24 @@ header .slogan {
 ===================== */
 
 nav {
-    margin-top: 20px;
+    margin-top: 0; /* On enlève la marge car on est en Flexbox */
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+    margin-left: 15px; /* Espace entre les liens */
+    font-weight: 600;
+    font-size: 0.95em;
+    padding: 8px 16px; /* Donne du volume aux boutons */
+    border-radius: 20px; /* Bords arrondis */
+    transition: all 0.3s ease; /* Animation fluide */
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Effet au survol et lien actif */
+nav a:hover, nav a.active {
+    background-color: rgba(255, 255, 255, 0.2); /* Fond blanc transparent */
+    text-decoration: none;
 }
 
 /* =====================
@@ -62,50 +78,58 @@ nav a:hover {
 ===================== */
 
 main {
-    padding: 30px 20px;
+    padding: 40px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 /* =====================
-   SECTION GÎTES
+   PAGE ACCUEIL : LISTE GÎTES
 ===================== */
 
 .gites {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
 .gite {
     background-color: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 0; /* On retire le padding pour que l'image touche les bords */
+    border-radius: 12px;
     flex: 1;
-    min-width: 250px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 280px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Ombre plus douce */
+    overflow: hidden; /* Empêche l'image de dépasser des bords arrondis */
+    transition: transform 0.3s ease; /* Petite animation au survol */
+    display: flex;
+    flex-direction: column;
+}
+
+.gite:hover {
+    transform: translateY(-5px); /* Le gîte remonte un peu au survol */
+}
+
+.gite-content {
+    padding: 20px; /* On remet du padding pour le texte seulement */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .gite h3 {
-    color: #2e7d32;
+    margin-bottom: 10px;
 }
 
 .gite img {
     width: 100%;
-    height: 200px;      /* ajustez la hauteur selon le rendu souhaité */
-    object-fit: cover;  /* recadre l'image sans la déformer */
-    border-radius: 6px;
-}
-
-/* mobile */
-@media (max-width: 480px) {
-    .gite img {
-        height: 150px;
-    }
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid #2e7d32; /* Petite ligne verte sous l'image */
 }
 
 /* =====================
@@ -114,16 +138,177 @@ section {
 
 .btn {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 15px;
+    margin-top: auto; /* Pousse le bouton vers le bas */
+    padding: 12px 20px;
     background-color: #2e7d32;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px; /* Boutons très arrondis */
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #256628;
+    background-color: #1b5e20; /* Vert plus foncé */
+}
+
+/* =====================
+   PAGE DÉTAIL GÎTE
+===================== */
+
+.gite-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.localisation {
+    color: #666;
+    margin-top: -5px;
+    font-style: italic;
+}
+
+/* Galerie Photos */
+.galerie {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    height: 450px;
+}
+
+.photo-principale {
+    flex: 2;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.photo-principale img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.photo-principale:hover img {
+    transform: scale(1.02); /* Zoom léger effet cinéma */
+}
+
+.photos-secondaires {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.photos-secondaires img {
+    height: calc(50% - 7.5px);
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Infos clés */
+.infos-cles {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+    border: 1px solid #eef2e9;
+}
+
+.infos-cles span {
+    font-weight: 600;
+    color: #2e7d32; /* Texte vert */
+    font-size: 1.1em;
+}
+
+/* Contenu page */
+.contenu-page {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.colonne-principale {
+    flex: 2;
+}
+
+.colonne-laterale {
+    flex: 1;
+    position: sticky;
+    top: 100px; /* Ajusté car le header est sticky */
+    min-width: 320px;
+}
+
+/* Widget Réservation */
+.carte-resa {
+    background-color: white;
+    border-top: 6px solid #2e7d32;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ombre plus marquée */
+    text-align: center;
+}
+
+.carte-resa h3 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+}
+
+.prix {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 25px;
+    background: #f4f6f5;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.btn-full {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #ff7043; /* Orange un peu plus doux */
+    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3); /* Ombre orangée */
+}
+.btn-full:hover {
+    background-color: #f4511e;
+}
+
+/* Bloc Hôte */
+.hote-box {
+    border-left: 4px solid #2e7d32; /* Juste une barre à gauche */
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 30px;
+    background-color: #f9fbf9;
+}
+
+/* Thématiques */
+.themes-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.theme-item {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+    color: #555;
+    font-weight: 600;
 }
 
 /* =====================
@@ -131,24 +316,72 @@ section {
 ===================== */
 
 footer {
-    background-color: #e0e0e0;
+    background-color: #333; /* Footer foncé plus moderne */
+    color: #ccc;
     text-align: center;
-    padding: 15px;
+    padding: 30px;
     font-size: 0.9em;
+    margin-top: 60px;
 }
 
 /* =====================
    RESPONSIVE (MOBILE)
 ===================== */
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
 
-    nav a {
-        display: block;
-        margin: 10px 0;
+    /* Header Mobile */
+    header {
+        flex-direction: column;
+        padding: 20px;
+        position: relative; /* Pas sticky sur mobile */
     }
 
+    header h1 {
+        margin-bottom: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 0.9em;
+    }
+
+    /* Accueil */
     .gites {
         flex-direction: column;
+    }
+    
+    /* Page Gîte */
+    .galerie {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .photo-principale {
+        height: 250px;
+    }
+    
+    .photos-secondaires {
+        flex-direction: row;
+        height: 120px;
+    }
+
+    .contenu-page {
+        flex-direction: column;
+    }
+
+    .colonne-laterale {
+        width: 100%;
+        position: static;
+        min-width: auto;
+        order: -1; /* Optionnel : Met la réservation AVANT la description sur mobile */
+        margin-bottom: 30px;
     }
 }
