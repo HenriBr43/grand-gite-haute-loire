@@ -177,7 +177,7 @@
         
         /* Modifié : Ajout d'un fond blanc pour la lisibilité sur l'image satellite */
         .presentation-box {
-            max-width: 800px;
+            max-width: 1000px; /* ÉLARGIE (était 800px) */
             margin: 0 auto 50px auto;
             text-align: center;
             font-size: 1.1em;
@@ -195,32 +195,58 @@
 
     <main>
 
-        <!-- Présentation Fusionnée (Avec fond blanc) -->
+        <!-- Présentation Fusionnée (Avec fond blanc et sans br) -->
         <section class="presentation-box">
             <h2>Bienvenue en Haute-Loire</h2>
             <p>
-                Nous vous proposons <strong>trois gîtes tout confort</strong> situés dans un environnement calme et naturel.
-                Que vous soyez en famille, entre amis ou en couple, nos gîtes sont idéals pour se ressourcer.
+                Nous vous proposons <strong>trois gîtes tout confort</strong> situés sur la commune d'Arlempdes (43),
+                village classé parmi les <strong>"Plus Beaux Villages de France"</strong>.
             </p>
-            
             <p>
-                La Haute-Loire offre des paysages magnifiques, des sentiers de randonnée,
-                des villages typiques et un patrimoine naturel exceptionnel.
-                Un cadre idéal pour des vacances reposantes.
+                Le gîte <strong>"Les Sources"</strong> est niché au cœur du village médiéval, dans l'enceinte même du château.
+                Les gîtes <strong>"L'Estaou"</strong> et <strong>"Le Rabiouze"</strong> sont situés au calme dans le <strong>Hameau le Suc</strong>, à quelques minutes du bourg.
+            </p>
+            <p>
+                Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel exceptionnel pour des vacances reposantes.
             </p>
         </section>
 
         <!-- Liste des gîtes -->
         <section class="gites">
             
-            <!-- GÎTE 1 -->
+            <!-- GÎTE 1 - LES SOURCES (INFOS MISES À JOUR) -->
             <article class="gite">
                 <img src="images/sources/Ch1-714 - lits.JPG" alt="Gîte 1 – Les Sources">
                 <div class="gite-content">
                     <div>
                         <h3>Gîte 1 – Les Sources</h3>
-                        <span class="localisation-tag">📍 Haute-Loire</span>
-                        <p>Gîte chaleureux pour 4 personnes, avec jardin et terrasse. Un havre de paix pour se retrouver.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                            <span class="localisation-tag">📍 Village d’Arlempdes (43)</span>
+                            <span class="ref-tag">Ref : H43G006192</span>
+                        </div>
+
+                        <!-- Zone Badges / Labels -->
+                        <div class="logos">
+                            <!-- LOGOS SPÉCIFIQUES -->
+                            <img src="images/logos/GiteDeFrance_3Epis.png" alt="3 Épis" class="badge-img">
+                            <img src="images/logos/logo-plus-beaux-villages-de-france.png" alt="Plus beau village de France" class="badge-img">
+                        </div>
+
+                        <div class="badges">
+                            <span class="badge gris">⛰️ Montagne</span>
+                            <span class="badge gris">❄️ Ski</span>
+                        </div>
+
+                        <!-- Bloc Infos Techniques -->
+                        <ul class="gite-infos">
+                            <li>👥 <strong>9 personnes</strong></li>
+                            <li>🛏️ <strong>3 chambres</strong></li>
+                            <li>📐 <strong>120 m²</strong></li>
+                            <li>🚿 1 Sdb, 1 Sde, 2 WC</li>
+                            <li>🐾 Animaux acceptés</li>
+                        </ul>
+
+                        <p style="font-size:0.9em; margin-bottom:10px;">Maison en pierres apparentes située exceptionnellement dans l'enceinte des remparts du château fort.</p>
                     </div>
                     <a href="lessources.html" class="btn">Découvrir</a>
                 </div>
@@ -234,6 +260,7 @@
                         <h3>Gîte 2 – L’Estaou</h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc - Arlempdes (43)</span>
+                            <span class="ref-tag">Ref : H43G006238</span>
                         </div>
 
                         <!-- Zone Badges / Labels -->
@@ -263,7 +290,7 @@
                 </div>
             </article>
 
-            <!-- GÎTE 3 - RABIOUZE (INFOS MISES À JOUR) -->
+            <!-- GÎTE 3 - RABIOUZE -->
             <article class="gite">
                 <img src="images/gite3.jpg" alt="Gîte 3 – Rabiouze">
                 <div class="gite-content">
@@ -271,6 +298,7 @@
                         <h3>Gîte 3 – Le Rabiouze</h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc - Arlempdes (43)</span>
+                            <span class="ref-tag">Ref : H43G023327</span>
                         </div>
 
                         <!-- Zone Badges / Labels -->
@@ -282,7 +310,7 @@
                         </div>
 
                         <div class="badges">
-                            <!-- Autres badges texte (Sans Wifi/Télétravail/Tout Compris) -->
+                            <!-- Autres badges texte -->
                             <span class="badge gris">⛰️ Montagne</span>
                             <span class="badge gris">❄️ Ski</span>
                         </div>
