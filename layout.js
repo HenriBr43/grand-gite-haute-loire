@@ -4,7 +4,7 @@ const headerHTML = `
     <h1>NOS GÎTES EN HAUTE-LOIRE</h1>
     <nav>
         <a href="accueil.html">Accueil</a>
-        <a href="lessources.html">Gîte 1</a>
+        <a href="lessources.html">Les Sources</a>
         <a href="estaou.html">L'Estaou</a>
         <a href="rabiouze.html">Le Rabiouze</a>
         <a href="contact.html">Contact</a>
