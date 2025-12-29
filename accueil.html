@@ -8,77 +8,156 @@
     <!-- Lien vers le fichier CSS principal -->
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- STYLE SPÉCIFIQUE À L'ACCUEIL (Pour la grille et les grandes images) -->
+    <!-- STYLE SPÉCIFIQUE À L'ACCUEIL -->
     <style>
-        /* 1. On force la page à prendre plus de largeur sur l'accueil uniquement */
+        /* 1. Mise en page générale */
         main {
-            max-width: 95% !important; /* Occupe 95% de l'écran */
+            max-width: 95% !important;
         }
 
-        /* 2. On transforme la liste en une Grille moderne */
+        /* 2. Grille des gîtes */
         .gites {
             display: grid;
-            /* Crée 3 colonnes de taille égale qui s'adaptent */
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 40px; /* Espace entre les cartes */
+            /* FORCE L'AFFICHAGE SUR 3 COLONNES CÔTE À CÔTE */
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 30px; /* Espace entre les cartes */
+        }
+        
+        /* SÉCURITÉ MOBILE : Si l'écran est petit (tablette/téléphone), on les empile */
+        @media (max-width: 1000px) {
+            .gites {
+                grid-template-columns: 1fr; /* Une seule colonne */
+            }
         }
 
-        /* 3. On améliore le look de la "carte" */
+        /* 3. Design de la carte */
         .gite {
             display: flex;
             flex-direction: column;
-            height: 100%; /* S'assure que les 3 cartes ont la même hauteur */
-            border-radius: 15px; /* Arrondis plus prononcés */
-            overflow: hidden; /* Important pour que l'image suive l'arrondi */
+            height: 100%;
+            border-radius: 15px;
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background-color: white;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            padding: 0; /* Important : on enlève le padding par défaut pour coller l'image aux bords */
+            padding: 0;
         }
 
-        /* Petit effet au survol de la carte entière */
         .gite:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        /* 4. Intégration de l'image (Plus haute et immersive) */
+        /* 4. Images */
         .gite img {
-            height: 300px; /* On augmente la hauteur (c'était 200px) */
+            height: 300px;
             width: 100%;
-            object-fit: cover; /* Recadre proprement */
-            border-bottom: none; /* On enlève la bordure pour un look "photo" pur */
-            margin: 0; /* Sécurité */
-            /* Petit effet de zoom dans l'image au survol */
+            object-fit: cover;
+            border-bottom: none;
+            margin: 0;
             transition: transform 0.5s ease;
         }
 
         .gite:hover img {
-            transform: scale(1.05); /* Zoom léger sur l'image */
+            transform: scale(1.05);
         }
 
-        /* 5. Le contenu sous l'image */
+        /* 5. Contenu texte */
         .gite-content {
             padding: 25px;
-            flex-grow: 1; /* Pousse le bouton vers le bas pour qu'ils soient alignés */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: white;
-            position: relative; /* Pour gérer la superposition */
-            z-index: 1; /* Reste au dessus de l'image */
+            position: relative;
+            z-index: 1;
         }
 
         .gite h3 {
             font-size: 1.5em;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             color: #2e7d32;
         }
+
+        /* NOUVEAU : Style pour les infos techniques (lits, surface...) */
+        .gite-infos {
+            list-style: none; /* Enlève les points moches */
+            padding: 0;
+            margin: 15px 0;
+            font-size: 0.9em;
+            color: #555;
+            background-color: #f9f9f9; /* Petit fond gris */
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
         
-        /* Centrer le texte de présentation en haut de page */
+        .gite-infos li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .localisation-tag {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .ref-tag {
+            font-size: 0.8em;
+            color: #999;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Style des badges (Épis, Labels...) */
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center; /* Aligne les images et le texte verticalement */
+        }
+
+        /* Logos côte à côte */
+        .logos {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            margin-bottom: 15px;
+            width: auto;
+            max-width: 250px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e8f5e9; /* Fond vert très clair */
+            color: #2e7d32;
+            font-size: 0.8em;
+            font-weight: bold;  
+            border: 1px solid #c8e6c9;
+        }
+
+        /* NOUVEAU : Style pour les images de logos */
+        .badge-img {
+            display: block;
+        }
+
+        .badge.gris {
+            background-color: #f5f5f5;
+            color: #666;
+            border-color: #e0e0e0;
+        }
+        
+        /* Centrer le texte de présentation */
         .presentation {
             max-width: 800px;
-            margin: 0 auto 50px auto; /* Centre le bloc et ajoute de l'espace sous le texte */
+            margin: 0 auto 50px auto;
             text-align: center;
             font-size: 1.1em;
         }
@@ -107,11 +186,11 @@
             
             <!-- GÎTE 1 -->
             <article class="gite">
-                <!-- Image corrigée avec slash / -->
                 <img src="images/sources/Ch1-714 - lits.JPG" alt="Gîte 1 – Les Sources">
                 <div class="gite-content">
                     <div>
                         <h3>Gîte 1 – Les Sources</h3>
+                        <span class="localisation-tag">📍 Haute-Loire</span>
                         <p>Gîte chaleureux pour 4 personnes, avec jardin et terrasse. Un havre de paix pour se retrouver.</p>
                     </div>
                     <a href="lessources.html" class="btn">Découvrir</a>
@@ -124,19 +203,52 @@
                 <div class="gite-content">
                     <div>
                         <h3>Gîte 2 – Estaou</h3>
+                        <span class="localisation-tag">📍 Haute-Loire</span>
                         <p>Gîte spacieux pour 6 personnes, idéal pour les séjours en groupe ou les grandes familles.</p>
                     </div>
                     <a href="estaou.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
-            <!-- GÎTE 3 -->
+            <!-- GÎTE 3 - RABIOUZE (INFOS MISES À JOUR) -->
             <article class="gite">
                 <img src="images/gite3.jpg" alt="Gîte 3 – Rabiouze">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte 3 – Rabiouze</h3>
-                        <p>Petit gîte pour 2 personnes, parfait pour un séjour romantique au coin du feu.</p>
+                        <h3>Gîte 3 – Le Rabiouze</h3>
+                        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                            <span class="localisation-tag">📍 Hameau le Suc - Arlempdes (43)</span>
+                            <span class="ref-tag">Ref : H43G023327</span>
+                        </div>
+
+                        <!-- Zone Badges / Labels -->
+                        <div class="logos">
+                            <!-- LOGOS (Pense à renommer tes fichiers images correctement) -->
+                            <img src="images/logos/GiteDeFrance_4Epis.png" alt="4 Épis" class="badge-img">
+                            <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
+                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">
+                        </div>
+
+                        <div class="badges">
+                            <!-- Autres badges texte -->
+                            <span class="badge">✨ Tout Compris</span>
+                            <span class="badge gris">⛰️ Montagne</span>
+                            <span class="badge gris">❄️ Ski</span>
+                            <span class="badge gris">💻 Télétravail</span>
+                        </div>
+                        
+                        <!-- Bloc Infos Techniques -->
+                        <ul class="gite-infos">
+                            <li>👥 <strong>15 personnes</strong> / 22 couchages</li>
+                            <li>🛏️ <strong>8 chambres</strong></li>
+                            <li>📐 <strong>330 m²</strong></li>
+                            <li>🚿 Salles de bain & Salles d'eau</li>
+                            <li>📶 Wifi Gratuit</li>
+                            <li>🐾 Animaux acceptés</li>
+                        </ul>
+
+                        <p style="font-size:0.9em; margin-bottom:10px;">Ancienne bergerie rénovée. Grands espaces de vie, idéal pour les réunions de famille. Proche château d'Arlempdes.</p>
+                        <p style="font-size:0.8em; color:#777; font-style:italic;">Annonce d'un particulier</p>
                     </div>
                     <a href="rabiouze.html" class="btn">Découvrir</a>
                 </div>
@@ -161,7 +273,7 @@
     <!-- LE FOOTER EST GÉRÉ PAR JAVASCRIPT (layout.js) -->
     <div id="footer-placeholder"></div>
 
-    <!-- SCRIPT INDISPENSABLE POUR AFFICHER LE MENU ET LE PIED DE PAGE -->
+    <!-- SCRIPT INDISPENSABLE -->
     <script src="layout.js"></script>
 
 </body>

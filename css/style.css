@@ -132,6 +132,14 @@ section {
     border-bottom: 3px solid #2e7d32; /* Petite ligne verte sous l'image */
 }
 
+/* Exclure les logos de ce style */
+.gite img.badge-img {
+    width: calc((100% - 20px) / 3) !important;
+    height: 85px !important;
+    object-fit: contain !important;
+    border-bottom: none !important;
+}
+
 /* =====================
    BOUTONS
 ===================== */
@@ -381,7 +389,7 @@ footer {
         width: 100%;
         position: static;
         min-width: auto;
-        order: -1; /* Optionnel : Met la réservation AVANT la description sur mobile */
+        order: -1; 
         margin-bottom: 30px;
     }
 }
