@@ -5,6 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gîte L'Estaou - Arlempdes</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Style pour les sections de pièces */
+        .piece-section {
+            margin-bottom: 40px; /* Espace entre les groupes de photos */
+        }
+        
+        .piece-section h4 {
+            color: #2e7d32;
+            border-bottom: 2px solid #eee; /* Petite ligne de séparation */
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Grille photo ajustée */
+        .galerie-grid {
+            display: grid;
+            /* On met 180px min pour essayer d'en caser 4 ou 5 par ligne sur PC */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px; /* Espace plus fin entre les photos */
+        }
+
+        .photo-item {
+            break-inside: avoid;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 160px; /* Hauteur un peu plus petite pour voir plus de photos */
+            object-fit: cover;
+            border-radius: 6px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            background-color: #eee; /* Gris clair en attendant l'image */
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .photo-item p {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,15 +70,14 @@
             <p class="localisation">📍 Arlempdes - Haute-Loire | Ref : H43G006238</p>
         </section>
 
-        <!-- Galerie Photos -->
+        <!-- Galerie Photos (Résumé en haut - Photos Principales) -->
         <section class="galerie">
             <div class="photo-principale">
-                <!-- Remplace par tes vraies photos -->
-                <img src="images/gite2.jpg" alt="Façade du gîte L'Estaou">
+                <img src="images/estaou/Face avant-433.JPG" alt="Façade du gîte L'Estaou">
             </div>
             <div class="photos-secondaires">
-                <img src="images/gite2-salon.jpg" alt="Salon" onerror="this.src='images/gite2.jpg'">
-                <img src="images/gite2-chambre.jpg" alt="Chambre" onerror="this.src='images/gite2.jpg'">
+                <img src="images/estaou/Salon-1256.JPG" alt="Salon" onerror="this.src='images/gite2.jpg'">
+                <img src="images/estaou/Salle a manger-1300.JPG" alt="Salle à manger" onerror="this.src='images/gite2.jpg'">
             </div>
         </section>
 
@@ -36,7 +86,6 @@
             <span>👥 15 personnes</span>
             <span>🛏️ 6 chambres</span>
             <span>📐 260 m²</span>
-            <span>♿ Tourisme & Handicap</span>
             <span>🐾 Animaux acceptés</span>
         </section>
 
@@ -99,11 +148,87 @@
                     <h3>Thématiques</h3>
                     <div class="themes-grid">
                         <div class="theme-item">🌲 Ecogîte</div>
-                        <div class="theme-item">♿ Tourisme & Handicap</div>
                         <div class="theme-item">⛰️ Montagne</div>
                         <div class="theme-item">🎿 Ski (19 km)</div>
                         <div class="theme-item">🎣 Pêche</div>
                     </div>
+                </section>
+
+                <!-- NOUVELLE SECTION : VISITE DÉTAILLÉE PAR PIÈCE -->
+                <section id="galerie-complete">
+                    <h3>Visite détaillée</h3>
+                    <p>Explorez le gîte pièce par pièce :</p>
+                    
+                    <!-- 1. PIÈCES DE VIE -->
+                    <div class="piece-section">
+                        <h4>🛋️ Salon, Salle à manger & Cuisine</h4>
+                        <div class="galerie-grid">
+                            <div class="photo-item"><img src="images/estaou/Salon-1256.JPG" alt="Salon"><p>Salon</p></div>
+                            <div class="photo-item"><img src="images/estaou/Salon-1257.JPG" alt="Salon"><p>Salon (Détail)</p></div>
+                            <div class="photo-item"><img src="images/estaou/Salle a manger-1300.JPG" alt="Salle à Manger"><p>Salle à manger</p></div>
+                            <div class="photo-item"><img src="images/estaou/Salle a manger-1303.JPG" alt="Salle à Manger"><p>Coin repas</p></div>
+                            <div class="photo-item"><img src="images/estaou/Cuisine-1295.JPG" alt="Cuisine"><p>Cuisine</p></div>
+                            <div class="photo-item"><img src="images/estaou/Cuisine-1301.JPG" alt="Cuisine"><p>Cuisine équipée</p></div>
+                        </div>
+                    </div>
+
+                    <!-- 2. LES CHAMBRES -->
+                    <div class="piece-section">
+                        <h4>🛏️ Les Chambres</h4>
+                        <div class="galerie-grid">
+                            <!-- Chambre 1 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 1-Agnelles-460.JPG" alt="Chambre 1"><p>Chambre 1 - Agnelles</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 1-Agnelles-465.JPG" alt="Chambre 1"><p>Chambre 1</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 1-Agnelles-466.JPG" alt="Chambre 1"><p>Chambre 1</p></div>
+                            
+                            <!-- Chambre 2 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 2-Bergerie-451.JPG" alt="Chambre 2"><p>Chambre 2 - Bergerie</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 2-Bergerie-454.JPG" alt="Chambre 2"><p>Chambre 2</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 2-Bergerie-457.JPG" alt="Chambre 2"><p>Chambre 2</p></div>
+
+                            <!-- Chambre 3 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 3-Vaches-516.JPG" alt="Chambre 3"><p>Chambre 3 - Vaches</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 3-Vaches-521.JPG" alt="Chambre 3"><p>Chambre 3</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 3-Vaches-527.JPG" alt="Chambre 3"><p>Chambre 3</p></div>
+
+                            <!-- Chambre 4 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 4-Noires du velay-537.JPG" alt="Chambre 4"><p>Ch. 4 - Noires du Velay</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 4-Noires du velay-1266.JPG" alt="Chambre 4"><p>Chambre 4</p></div>
+
+                            <!-- Chambre 5 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 5-Noires du Velay-1260.JPG" alt="Chambre 5"><p>Ch. 5 - Noires du Velay</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 5-Noires du velay-1261.JPG" alt="Chambre 5"><p>Chambre 5</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 5-Noires du velay-1263.JPG" alt="Chambre 5"><p>Chambre 5</p></div>
+
+                            <!-- Chambre 6 -->
+                            <div class="photo-item"><img src="images/estaou/Chambre 6-Veaux-511.JPG" alt="Chambre 6"><p>Chambre 6 - Veaux</p></div>
+                            <div class="photo-item"><img src="images/estaou/Chambre 6-Veaux-1279.JPG" alt="Chambre 6"><p>Chambre 6</p></div>
+                        </div>
+                    </div>
+
+                    <!-- 3. SANITAIRES -->
+                    <div class="piece-section">
+                        <h4>🚿 Sanitaires</h4>
+                        <div class="galerie-grid">
+                            <div class="photo-item"><img src="images/estaou/wc sde sdb-473.JPG" alt="Sanitaires"><p>Salle de bain / WC</p></div>
+                            <div class="photo-item"><img src="images/estaou/wc sde sdb-496.JPG" alt="Sanitaires"><p>Salle d'eau</p></div>
+                        </div>
+                    </div>
+
+                    <!-- 4. EXTÉRIEURS -->
+                    <div class="piece-section">
+                        <h4>🌳 Extérieurs & Vues</h4>
+                        <div class="galerie-grid">
+                            <div class="photo-item"><img src="images/estaou/Face avant retenue-408 bis.jpg" alt="Extérieur"><p>Façade</p></div>
+                            <div class="photo-item"><img src="images/estaou/Face avant-433.JPG" alt="Extérieur"><p>Entrée</p></div>
+                            <div class="photo-item"><img src="images/estaou/Terrasse nord-1304.JPG" alt="Terrasse Nord"><p>Terrasse Nord</p></div>
+                            <div class="photo-item"><img src="images/estaou/Terrasse sud-423.JPG" alt="Terrasse Sud"><p>Terrasse Sud</p></div>
+                            <div class="photo-item"><img src="images/estaou/Terrasse sud-609.JPG" alt="Terrasse Sud"><p>Vue Terrasse</p></div>
+                            <div class="photo-item"><img src="images/estaou/IMG_1282.JPG" alt="Vue"><p>Vue générale</p></div>
+                            <div class="photo-item"><img src="images/estaou/MXTJ9388.JPG" alt="Vue"><p>Vue extérieure</p></div>
+                        </div>
+                    </div>
+
                 </section>
 
                  <section id="localisation">
