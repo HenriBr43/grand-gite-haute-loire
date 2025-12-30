@@ -1,5 +1,5 @@
 /* =====================
-   STYLE GÉNÉRAL
+   1. STYLE GÉNÉRAL
 ===================== */
 
 * {
@@ -10,13 +10,13 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f4f6f5; /* On garde le fond clair pour la lisibilité */
+    background-color: #f4f6f5;
     color: #333;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     margin-top: 0;
-    color: #29612c; /* NOUVEAU VERT SAPIN (Solide) */
+    color: #29612c; /* Vert Sapin */
 }
 
 img {
@@ -24,11 +24,11 @@ img {
 }
 
 /* =====================
-   HEADER (MODERNE)
+   2. HEADER & NAV
 ===================== */
 
 header {
-    background-color: #29612cc7; /* NOUVEAU VERT SAPIN (Semi-transparent) */
+    background-color: #29612cc7; /* Vert semi-transparent */
     color: white;
     padding: 15px 40px;
     display: flex;
@@ -38,7 +38,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(5px); /* Petit effet de flou derrière le menu */
+    backdrop-filter: blur(5px);
 }
 
 header h1 {
@@ -49,13 +49,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* =====================
-   NAVIGATION
-===================== */
-
-nav {
-    margin-top: 0;
-}
+nav { margin-top: 0; }
 
 nav a {
     color: white;
@@ -73,8 +67,28 @@ nav a:hover, nav a.active {
     text-decoration: none;
 }
 
+/* Mise en avant du bouton Découvrir (Animation) */
+.nav-highlight {
+    background-color: #ff9800 !important;
+    color: white !important;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #f57c00;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-highlight:hover {
+    background-color: #f57c00 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.5);
+}
+
 /* =====================
-   CONTENU PRINCIPAL
+   3. STRUCTURE PAGE
 ===================== */
 
 main {
@@ -84,12 +98,10 @@ main {
     width: 98%;
 }
 
-section {
-    margin-bottom: 50px;
-}
+section { margin-bottom: 50px; }
 
 /* =====================
-   PAGE ACCUEIL : LISTE GÎTES
+   4. ACCUEIL (CARTES GÎTES)
 ===================== */
 
 .gites {
@@ -111,9 +123,7 @@ section {
     flex-direction: column;
 }
 
-.gite:hover {
-    transform: translateY(-5px);
-}
+.gite:hover { transform: translateY(-5px); }
 
 .gite-content {
     padding: 20px;
@@ -122,18 +132,14 @@ section {
     flex-grow: 1;
 }
 
-.gite h3 {
-    margin-bottom: 10px;
-}
-
 .gite img {
     width: 100%;
     height: 220px;
     object-fit: cover;
-    border-bottom: 3px solid #29612c; /* Ligne verte harmonisée */
+    border-bottom: 3px solid #29612c;
 }
 
-/* Exclure les logos de ce style */
+/* Exclure les logos */
 .gite img.badge-img {
     width: calc((100% - 20px) / 3) !important;
     height: 85px !important;
@@ -142,14 +148,14 @@ section {
 }
 
 /* =====================
-   BOUTONS
+   5. BOUTONS
 ===================== */
 
 .btn {
     display: inline-block;
     margin-top: auto;
     padding: 12px 20px;
-    background-color: #29612c; /* Bouton vert sapin */
+    background-color: #29612c;
     color: white;
     text-decoration: none;
     border-radius: 30px;
@@ -158,12 +164,17 @@ section {
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #1a401d; /* Encore plus foncé au survol */
+.btn:hover { background-color: #1a401d; }
+
+.btn-full {
+    display: block;
+    width: 100%;
+    background-color: #ff7043; /* Orange action */
 }
+.btn-full:hover { background-color: #f4511e; }
 
 /* =====================
-   PAGE DÉTAIL GÎTE
+   6. DÉTAILS GÎTES (LAYOUT)
 ===================== */
 
 .gite-header {
@@ -178,7 +189,25 @@ section {
     font-style: italic;
 }
 
-/* Galerie Photos */
+.contenu-page {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.colonne-principale { flex: 2; }
+
+.colonne-laterale {
+    flex: 1;
+    position: sticky;
+    top: 100px;
+    min-width: 320px;
+}
+
+/* =====================
+   7. GALERIE PRINCIPALE
+===================== */
+
 .galerie {
     display: flex;
     gap: 15px;
@@ -191,6 +220,7 @@ section {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .photo-principale img {
@@ -199,9 +229,7 @@ section {
     object-fit: cover;
     transition: transform 0.5s;
 }
-.photo-principale:hover img {
-    transform: scale(1.02);
-}
+.photo-principale:hover img { transform: scale(1.02); }
 
 .photos-secondaires {
     flex: 1;
@@ -217,7 +245,162 @@ section {
     border-radius: 12px;
 }
 
-/* Infos clés */
+/* =====================
+   8. GALERIE DÉTAILLÉE (GRILLE)
+===================== */
+
+.piece-section { margin-bottom: 40px; }
+
+.piece-section h4 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.galerie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.3s;
+    cursor: pointer;
+    background-color: #eee;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.photo-item p {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 5px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* =====================
+   9. VIDÉO OVERLAY
+===================== */
+.video-overlay-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-decoration: none;
+}
+.play-icon-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    padding-left: 4px;
+    transition: 0.3s;
+    z-index: 10;
+}
+.video-overlay-container:hover .play-icon-overlay {
+    background-color: #c62828;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+.video-label {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px black;
+    font-size: 0.9em;
+    pointer-events: none;
+}
+
+/* =====================
+   10. TARIFS & OPTIONS
+===================== */
+
+/* Tableau Tarifs */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tarifs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    min-width: 500px;
+}
+.tarifs-table th {
+    background-color: #29612c;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.tarifs-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.tarifs-table tr:nth-child(even) { background-color: #f9fbf9; }
+
+/* Liste Options */
+.options-list {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    margin-top: 20px;
+}
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px 40px;
+}
+.option-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted #ddd;
+    padding-bottom: 5px;
+    align-items: baseline;
+}
+.option-item strong { color: #29612c; }
+
+.tarif-note { 
+    font-size: 0.9em; 
+    background: #fff8e1; 
+    border-left: 4px solid #ffb74d;
+    padding: 15px; 
+    border-radius: 4px; 
+    margin-top: 20px; 
+    color: #5d4037; 
+}
+
+/* =====================
+   11. WIDGETS & INFOS
+===================== */
+
 .infos-cles {
     display: flex;
     justify-content: space-around;
@@ -230,46 +413,21 @@ section {
     gap: 20px;
     border: 1px solid #eef2e9;
 }
-
 .infos-cles span {
     font-weight: 600;
-    color: #29612c; /* Texte vert sapin */
+    color: #29612c;
     font-size: 1.1em;
 }
 
-/* Contenu page */
-.contenu-page {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
-
-.colonne-principale {
-    flex: 2;
-}
-
-.colonne-laterale {
-    flex: 1;
-    position: sticky;
-    top: 100px;
-    min-width: 320px;
-}
-
-/* Widget Réservation */
 .carte-resa {
     background-color: white;
-    border-top: 6px solid #29612c; /* Bordure verte sapin */
+    border-top: 6px solid #29612c;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     text-align: center;
 }
-
-.carte-resa h3 {
-    color: #29612c;
-    margin-bottom: 15px;
-    font-size: 1.4em;
-}
+.carte-resa h3 { color: #29612c; margin-bottom: 15px; font-size: 1.4em; }
 
 .prix {
     font-size: 1.4em;
@@ -280,35 +438,8 @@ section {
     border-radius: 8px;
 }
 
-.btn-full {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background-color: #ff7043; /* On garde l'orange pour l'action (contraste bien avec le vert sapin) */
-    box-shadow: 0 4px 10px rgba(255, 112, 67, 0.3);
-}
-.btn-full:hover {
-    background-color: #f4511e;
-}
-
-/* Bloc Hôte */
-.hote-box {
-    border-left: 4px solid #29612c;
-    border-right: none;
-    border-top: none;
-    border-bottom: none;
-    padding: 20px;
-    border-radius: 0 8px 8px 0;
-    margin-top: 30px;
-    background-color: #f9fbf9;
-}
-
 /* Thématiques */
-.themes-grid {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
+.themes-grid { display: flex; gap: 12px; flex-wrap: wrap; }
 .theme-item {
     background: white;
     padding: 8px 16px;
@@ -320,8 +451,74 @@ section {
     font-weight: 600;
 }
 
+.hote-box {
+    border-left: 4px solid #29612c;
+    padding: 20px;
+    background-color: #f9fbf9;
+    margin-top: 30px;
+}
+
 /* =====================
-   FOOTER
+   12. LIGHTBOX (MODAL)
+===================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 4px;
+    object-fit: contain;
+    animation: zoom 0.6s;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev-slide, .next-slide {
+    cursor: pointer; position: absolute; top: 50%; width: auto;
+    padding: 16px; margin-top: -50px; color: white; font-weight: bold;
+    font-size: 20px; border-radius: 0 3px 3px 0; background-color: rgba(0,0,0,0.3); user-select: none;
+}
+.next-slide { right: 0; border-radius: 3px 0 0 3px; }
+.prev-slide { left: 0; border-radius: 3px 0 0 3px; }
+.prev-slide:hover, .next-slide:hover { background-color: rgba(0,0,0,0.8); }
+
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+
+/* =====================
+   13. FOOTER
 ===================== */
 
 footer {
@@ -334,59 +531,16 @@ footer {
 }
 
 /* =====================
-   RESPONSIVE (MOBILE)
+   14. RESPONSIVE
 ===================== */
 
 @media (max-width: 850px) {
-    header {
-        flex-direction: column;
-        padding: 20px;
-        position: relative;
-    }
-
-    header h1 {
-        margin-bottom: 15px;
-    }
-
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    nav a {
-        margin: 5px;
-        font-size: 0.9em;
-    }
-
-    .gites {
-        flex-direction: column;
-    }
-    
-    .galerie {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    .photo-principale {
-        height: 250px;
-    }
-    
-    .photos-secondaires {
-        flex-direction: row;
-        height: 120px;
-    }
-
-    .contenu-page {
-        flex-direction: column;
-    }
-
-    .colonne-laterale {
-        width: 100%;
-        position: static;
-        min-width: auto;
-        order: -1; 
-        margin-bottom: 30px;
-    }
+    header { flex-direction: column; padding: 20px; }
+    header h1 { margin-bottom: 15px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav a { margin: 5px; }
+    .gites, .galerie, .contenu-page { flex-direction: column; height: auto; }
+    .photo-principale { height: 250px; }
+    .photos-secondaires { flex-direction: row; height: 120px; }
+    .colonne-laterale { width: 100%; position: static; order: -1; margin-bottom: 30px; }
 }

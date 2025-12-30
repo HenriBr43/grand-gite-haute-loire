@@ -7,256 +7,19 @@
     <!-- =========================================
          OPTIMISATION SEO (RÉFÉRENCEMENT)
          ========================================= -->
-    <!-- TITRE : Précis et descriptif pour Google -->
-    <title>Gîte L'Estaou - Location 15 personnes-19 couchages avec salle festive à Arlempdes (43)</title>
+    <title>Gîte L'Estaou - Location 15 personnes (19 couchages) avec Salle Festive - Arlempdes (43)</title>
+    <meta name="description" content="Louez L'Estaou à Arlempdes (43) : Ancienne ferme rénovée de 340m² pour 15-19 personnes. 6 chambres, salle festive, jardin clos. Idéal groupes, cousinades, label Tourisme & Handicap.">
+    <meta name="keywords" content="gite estaou arlempdes, gite 19 couchages haute loire, gite avec salle des fetes auvergne, gite pmr 43, ferme rénovée location groupe, gite de france 3 epis">
 
-    <!-- DESCRIPTION : Résumé accrocheur pour les résultats de recherche -->
-    <meta name="description" content="Louez le gîte L'Estaou à Arlempdes (Haute-Loire) : Ancienne ferme rénovée pour 15 personnes. 6 chambres, salle festive, jardin clos. Idéal groupes et réunions de famille au calme.">
-
-    <!-- MOTS-CLÉS : Pour aider un peu le référencement -->
-    <meta name="keywords" content="gite l'estaou arlempdes, gite 15 personnes haute loire, location groupe auvergne, gite avec salle des fetes, gite grande capacité 43, ferme rénovée">
-
-    <!-- OPEN GRAPH : Pour un beau partage sur Facebook/WhatsApp -->
-    <meta property="og:title" content="Gîte L'Estaou - 15 personnes à Arlempdes">
-    <meta property="og:description" content="Gîte de charme dans une ancienne ferme. 15 couchages, grande salle festive, jardin clos. Le lieu idéal pour vos retrouvailles !">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Gîte L'Estaou - 15/19 personnes avec Salle Festive">
+    <meta property="og:description" content="340m² de convivialité dans une ferme de 1882. Salle de jeux 70m², 6 chambres, Label Tourisme & Handicap.">
     <meta property="og:image" content="images/estaou/Face avant-433.JPG">
     <meta property="og:url" content="https://www.vos-gites-arlempdes.fr/estaou.html">
     <meta property="og:type" content="website">
 
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Style pour les sections de pièces */
-        .piece-section {
-            margin-bottom: 40px; /* Espace entre les groupes de photos */
-        }
-        
-        .piece-section h4 {
-            color: #29612c;
-            border-bottom: 2px solid #eee; /* Petite ligne de séparation */
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
 
-        /* Grille photo ajustée */
-        .galerie-grid {
-            display: grid;
-            /* On met 180px min pour essayer d'en caser 4 ou 5 par ligne sur PC */
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px; /* Espace plus fin entre les photos */
-        }
-
-        .photo-item {
-            break-inside: avoid;
-        }
-
-        .photo-item img {
-            width: 100%;
-            height: 160px; /* Hauteur un peu plus petite pour voir plus de photos */
-            object-fit: cover;
-            border-radius: 6px;
-            transition: transform 0.3s;
-            cursor: pointer; /* Indique qu'on peut cliquer */
-            background-color: #eee; /* Gris clair en attendant l'image */
-        }
-
-        .photo-item img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .photo-item p {
-            font-size: 0.85em;
-            color: #666;
-            margin-top: 5px;
-            text-align: center;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        
-        /* TABLEAU DES TARIFS (Style amélioré) */
-        .table-responsive {
-            overflow-x: auto;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .tarifs-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            min-width: 500px; /* Pour éviter que ça s'écrase trop sur mobile */
-        }
-        
-        .tarifs-table th {
-            background-color: #29612c;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .tarifs-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            color: #333;
-        }
-        
-        .tarifs-table tr:nth-child(even) {
-            background-color: #f9fbf9;
-        }
-        
-        .tarifs-table tr:hover {
-            background-color: #f1f8e9;
-        }
-        
-        .saison-detail {
-            font-size: 0.85em;
-            color: #666;
-            display: block;
-            margin-top: 5px;
-            font-style: italic;
-        }
-
-        /* LISTE DES OPTIONS */
-        .options-list {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            margin-top: 20px;
-        }
-        
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px 40px;
-        }
-        
-        .option-item {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dotted #ddd;
-            padding-bottom: 5px;
-            align-items: baseline;
-        }
-        
-        .option-item strong {
-            color: #29612c;
-        }
-
-        .tarif-note { 
-            font-size: 0.9em; 
-            background: #fff8e1; 
-            border-left: 4px solid #ffb74d;
-            padding: 15px; 
-            border-radius: 4px; 
-            margin-top: 20px; 
-            color: #5d4037; 
-        }
-
-        /* =========================================
-           STYLE DE LA LIGHTBOX (VUE AGRANDIE)
-           ========================================= */
-        .modal {
-            display: none; /* Caché par défaut */
-            position: fixed;
-            z-index: 2000; /* Au-dessus de tout */
-            padding-top: 50px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9); /* Fond noir opaque */
-        }
-
-        /* L'image en grand */
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 85vh; /* 85% de la hauteur de l'écran */
-            border-radius: 4px;
-            object-fit: contain;
-        }
-
-        /* Légende */
-        #caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            height: 150px;
-        }
-
-        /* Bouton Fermer (X) */
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .close-modal:hover,
-        .close-modal:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Boutons Précédent / Suivant */
-        .prev-slide, .next-slide {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -50px;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0,0,0,0.3); /* Fond léger pour voir les flèches */
-        }
-
-        .next-slide {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        
-        .prev-slide {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev-slide:hover, .next-slide:hover {
-            background-color: rgba(0,0,0,0.8);
-        }
-
-        /* Animation zoom */
-        .modal-content, #caption {
-            animation-name: zoom;
-            animation-duration: 0.6s;
-        }
-
-        @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
-        }
-    </style>
 </head>
 <body>
 
@@ -271,11 +34,15 @@
             <p class="localisation">📍 Hameau le Suc - Arlempdes (43) | Ref : H43G006238</p>
         </section>
 
-        <!-- Galerie Photos (Résumé en haut - Photos Principales) -->
+        <!-- Galerie Photos avec Vidéo intégrée sur la principale -->
         <section class="galerie">
             <div class="photo-principale">
-                <!-- Ajout de la classe 'clickable-img' pour le script JS -->
-                <img class="clickable-img" src="images/estaou/Face avant-433.JPG" alt="Façade du gîte L'Estaou">
+                <!-- Lien vers la vidéo Youtube sur l'image principale -->
+                <a href="https://www.youtube.com/watch?v=jbGZfj6wO1c" target="_blank" class="video-overlay-container">
+                    <img src="images/estaou/Face avant-433.JPG" alt="Vue aérienne du gîte - Cliquez pour voir la vidéo">
+                    <div class="play-icon-overlay">▶</div>
+                    <div class="video-label">Voir la vidéo aérienne</div>
+                </a>
             </div>
             <div class="photos-secondaires">
                 <img class="clickable-img" src="images/estaou/Salon-1256.JPG" alt="Salon" onerror="this.src='images/gite2.jpg'">
@@ -285,60 +52,87 @@
 
         <!-- Infos clés -->
         <section class="infos-cles">
-            <span>👥 15 personnes</span>
+            <span>👥 15 pers / 19 couchages</span>
             <span>🛏️ 6 chambres</span>
-            <span>📐 260 m²</span>
+            <span>📐 340 m²</span>
+            <span>♿ Tourisme & Handicap</span>
             <span>🐾 Animaux acceptés</span>
         </section>
 
         <div class="contenu-page">
             
-            <!-- Colonne Gauche : Description et Détails -->
+            <!-- Colonne Gauche -->
             <div class="colonne-principale">
                 
                 <section id="description">
                     <h3>Description</h3>
                     <p>
-                        Maison indépendante, <strong>ancienne ferme de famille de 1882</strong> restaurée avec soin en respectant son cachet d'origine, sur un terrain clos de 600 m².
+                        <strong>Élu "Gîte de l'année 2013"</strong>, L'Estaou est une maison indépendante de 340 m² située au cœur du hameau "Le Suc", sur la commune d'Arlempdes (classé "Plus Beaux Villages de France").
                     </p>
                     <p>
-                        À proximité : <strong>Arlempdes à 2 km</strong> (village médiéval classé "Plus beau village de France", vestiges du château, chapelle castrale, en bordure de Loire).
+                        Cette <strong>ancienne ferme de famille de 1882</strong> a été restaurée avec soin en respectant le cachet local : façades en pierre maçonnée, terrasse naturelle en "calades" (pierres volcaniques), montée de grange et soue à cochons.
                     </p>
+                    <p>
+                        Le gîte bénéficie du label <strong>Eco-gîte</strong> (écologique) et est labellisé <strong>"Tourisme & Handicap"</strong> (Visuel, Auditif, Mental).
+                    </p>
+
+                    <div style="background-color:#f9fbf9; padding:20px; border-radius:8px; border-left:4px solid #29612c; margin: 20px 0;">
+                        <h4 style="margin-top:0; color:#29612c;">Historique</h4>
+                        <p style="font-size:0.95em; color:#555;">
+                            Ce projet nous tenait particulièrement à cœur car il s’agit de notre village d’enfance. Cette bâtisse abritait autrefois l’étable, la grange et l'habitation familiale. Notre projet était de réhabiliter cette masure en conservant au maximum le cachet existant (entrée de grange, cheminée, poutres rondes...) tout en limitant notre empreinte environnementale (matériaux locaux, isolation renforcée, chauffage granules).
+                        </p>
+                    </div>
                     
-                    <h4>Agencement :</h4>
-                    <ul>
-                        <li><strong>Rez-de-chaussée :</strong> Grand séjour-cuisine (TV), 1 chambre (2 lits 140), 1 chambre (1 lit 160 et lit enfant), salle d'eau, wc.</li>
-                        <li><strong>1er étage :</strong> 4 chambres (5 lits 140, 2 lits 90), salle de bains (douche et baignoire), wc.</li>
+                    <h4>Agencement (6 chambres - 19 couchages) :</h4>
+                    <ul style="line-height:1.6;">
+                        <li><strong>Rez-de-chaussée (Accessible PMR partiel) :</strong>
+                            <br>• Grand salon-séjour avec cuisine ouverte (Piano 5 feux) sur terrasse en calades.
+                            <br>• <strong>Chambre 1 "Agnelles" (PMR) :</strong> 1 lit 160 + 1 lit bébé (3 couchages).
+                            <br>• <strong>Chambre 2/3 "Bergerie" (PMR) :</strong> Chambre double séparable, 2 lits 140 (4 couchages).
+                            <br>• Salle d'eau PMR (douche italienne) et WC PMR indépendant.
+                            <br>• Buanderie (Lave-linge).
+                        </li>
+                        <li><strong>1er Étage :</strong>
+                            <br>• <strong>Chambre 4 "Vaches" :</strong> 1 lit 140 + 1 lit 90 (3 couchages).
+                            <br>• <strong>Chambre 5 "Noires du Velay" :</strong> 1 lit 140 + 1 lit 90 (3 couchages).
+                            <br>• <strong>Chambre 6 "Blanches de Lozère" :</strong> 2 lits 140 (4 couchages).
+                            <br>• <strong>Chambre 7 "Veaux" :</strong> 1 lit 140 (2 couchages).
+                            <br>• 2 Salles de bains (2 douches italiennes + 1 baignoire).
+                            <br>• 1 WC indépendant.
+                            <br>• <strong>Salle de jeux / festive (70 m²) :</strong> Baby-foot, Ping-pong, Canapé-lit...
+                        </li>
                     </ul>
                     
-                    <!-- Bloc Hôte -->
                     <div class="hote-box">
-                        <p>Vos hôtes : <strong>Henri et Laurent</strong></p>
-                        <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France® depuis 2017.</p>
+                        <p>Vos hôtes : <strong>Henri et Laurent BOYER</strong></p>
+                        <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France® 3 épis.</p>
                     </div>
                 </section>
                 
-                <!-- SECTION TARIFS & PLANNING -->
+                <!-- SECTION TARIFS -->
                 <section id="tarifs">
-                    <h3>Tarifs & Disponibilités 2025</h3>
+                    <h3>Tarifs & Disponibilités 2026</h3>
                     
-                    <!-- CALENDRIER GÉNÉRÉ DEPUIS LE LIEN ICS -->
-                    <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white;">
+                    <!-- CALENDRIER -->
+                    <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; background: white;">
                         <div style="background-color: #29612c; color: white; padding: 10px; text-align: center; font-weight: bold;">
                             📅 Planning des disponibilités
                         </div>
-                        <!-- Utilisation de 'color=gray' pour forcer le gris et 'v=2' pour forcer le rafraichissement du cache -->
+                        <!-- Lien calendrier API Gite de France -->
                         <iframe 
-                            src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fplanning.grandsgites.com%2Fical%2F651acea50d3d9.ics&skin=fs&tab=month&start_date=now&language=fr&color=gray&v=2" 
+                            src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fapi.cloudspire.io%2Falfred%2Frooms%2FH43G006238%2Favailabilities%2Fcalendar.ics%3Fremote%3D1%26booking%3D1%26unavailability%3D1%26unconfigured%3D0&skin=fs&tab=month&start_date=now&language=fr&color=gray&v=2" 
                             width="100%" 
                             height="500" 
                             style="border:none;"
                             title="Calendrier L'Estaou"
                             sandbox="allow-scripts allow-same-origin allow-popups">
                         </iframe>
+                        <p style="text-align: center; font-size: 0.85em; color: #666; padding: 10px; margin: 0; background: #f9f9f9; border-top: 1px solid #eee;">
+                            * Les dates grisées ou colorées sont déjà réservées.
+                        </p>
                     </div>
 
-                    <!-- TABLEAU DES PRIX -->
+                    <!-- TABLEAU PRIX -->
                     <div class="table-responsive">
                         <table class="tarifs-table">
                             <thead>
@@ -351,29 +145,20 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td style="text-align:left; font-weight:bold;">
-                                        Basse Saison
-                                        <span class="saison-detail">Autres périodes</span>
-                                    </td>
-                                    <td>1100 €</td>
-                                    <td>1150 €</td>
-                                    <td>1050 €</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align:left; font-weight:bold;">
-                                        Moyenne Saison
-                                        <span class="saison-detail">Mai, Juin, Sept, Vac. Scolaires</span>
-                                    </td>
+                                    <td style="text-align:left; font-weight:bold;">Basse Saison <span class="saison-detail">Autres périodes</span></td>
                                     <td>1400 €</td>
-                                    <td>1150 €</td>
-                                    <td>1050 €</td>
+                                    <td>1300 €</td>
+                                    <td>1300 €</td>
                                 </tr>
                                 <tr>
-                                    <td style="text-align:left; font-weight:bold;">
-                                        Haute Saison
-                                        <span class="saison-detail">Juillet, Août, Noël, Nouvel An</span>
-                                    </td>
-                                    <td>2300 €</td>
+                                    <td style="text-align:left; font-weight:bold;">Moyenne Saison <span class="saison-detail">Mai, Juin, Sept, Vac. Scolaires</span></td>
+                                    <td>1700 €</td>
+                                    <td>1400 €</td>
+                                    <td>1300 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">Haute Saison <span class="saison-detail">Juillet, Août, Noël, Nouvel An</span></td>
+                                    <td>2400 €</td>
                                     <td>-</td>
                                     <td>-</td>
                                 </tr>
@@ -382,18 +167,18 @@
                     </div>
                     <p style="font-size:0.9em; font-style:italic; text-align:right;">* Tarifs hors ménage et chauffage</p>
 
-                    <!-- LISTE DES OPTIONS -->
+                    <!-- OPTIONS -->
                     <div class="options-list">
                         <h4>Suppléments & Options</h4>
                         <div class="options-grid">
                             <div class="option-item"><span>🧹 Ménage fin de séjour (Obligatoire)</span> <strong>150 €</strong></div>
-                            <div class="option-item"><span>🔥 Chauffage (Granules bois)</span> <strong>150 € / sem<br><small>(120 € / WE)</small></strong></div>
-                            <div class="option-item"><span>🏛️ Taxe de séjour</span> <strong>0,88 € / adulte / nuit</strong></div>
+                            <div class="option-item"><span>🔥 Chauffage (Granules)</span> <strong>150 € / sem<br><small>(120 € / WE)</small></strong></div>
+                            <div class="option-item"><span>🏛️ Taxe de séjour</span> <strong>1,10 € / adulte / nuit</strong></div>
+                            <div class="option-item"><span>🎉 Salle festive / jeux (70m²)</span> <strong>120 € / semaine</strong></div>
                             <div class="option-item"><span>🛏️ Location draps</span> <strong>15 € / lit</strong></div>
                             <div class="option-item"><span>🧖‍♀️ Linge de toilette</span> <strong>15 € / pers</strong></div>
                             <div class="option-item"><span>🏠 Linge de maison</span> <strong>15 € / séjour</strong></div>
                             <div class="option-item"><span>🐾 Supplément Chien</span> <strong>30 € / semaine</strong></div>
-                            <div class="option-item"><span>🎉 Location salle festive (60m²)</span> <strong>120 € / période</strong></div>
                             <div class="option-item"><span>🔒 Caution</span> <strong>600 €</strong></div>
                         </div>
                     </div>
@@ -401,7 +186,6 @@
                     <div class="tarif-note">
                         <strong>💳 Paiements acceptés :</strong> Chèques, Espèces, Virements. (Pas de Chèques Vacances)
                     </div>
-
                 </section>
 
                 <section id="equipements">
@@ -410,25 +194,27 @@
                         <div style="flex: 1; min-width: 200px;">
                             <h4>🏠 Intérieur</h4>
                             <ul>
-                                <li>Télévision</li>
+                                <li>Piano de cuisson 5 feux (90cm)</li>
                                 <li>Lave-vaisselle & Lave-linge</li>
-                                <li>Micro-ondes & Congélateur</li>
-                                <li>Chauffage central</li>
+                                <li>TV écran plat, DVD, Hifi</li>
+                                <li>Chauffage central écologique</li>
                             </ul>
                         </div>
                         <div style="flex: 1; min-width: 200px;">
                             <h4>🌳 Extérieur</h4>
                             <ul>
                                 <li>Terrain clos (600 m²)</li>
-                                <li>Terrasse & Barbecue</li>
-                                <li>Parking privé</li>
+                                <li>Terrasse en "calades"</li>
+                                <li>4 Salons de jardin (Sud & Nord)</li>
+                                <li>Terrain de pétanque</li>
+                                <li>Garage vélos/motos</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div style="margin-top: 15px;">
                         <h4>👶 Pour bébé</h4>
-                        <p>Équipement bébé disponible sur demande.</p>
+                        <p>Équipement bébé complet disponible sur demande.</p>
                     </div>
                 </section>
                 
@@ -436,22 +222,22 @@
                     <h3>Thématiques</h3>
                     <div class="themes-grid">
                         <div class="theme-item">🌲 Ecogîte</div>
+                        <div class="theme-item">♿ Tourisme & Handicap</div>
                         <div class="theme-item">⛰️ Montagne</div>
-                        <div class="theme-item">🎿 Ski (19 km)</div>
+                        <div class="theme-item">🎿 Ski (25 km)</div>
                         <div class="theme-item">🎣 Pêche</div>
                     </div>
                 </section>
 
-                <!-- NOUVELLE SECTION : VISITE DÉTAILLÉE PAR PIÈCE -->
+                <!-- GALERIE -->
                 <section id="galerie-complete">
                     <h3>Visite détaillée</h3>
                     <p>Cliquez sur une image pour l'agrandir :</p>
                     
-                    <!-- 1. PIÈCES DE VIE -->
+                    <!-- PIÈCES DE VIE -->
                     <div class="piece-section">
                         <h4>🛋️ Salon, Salle à manger & Cuisine</h4>
                         <div class="galerie-grid">
-                            <!-- Ajout de loading="lazy" et decoding="async" pour la performance -->
                             <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/estaou/Salon-1256.JPG" alt="Salon"><p>Salon</p></div>
                             <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/estaou/Salon-1257.JPG" alt="Salon"><p>Salon (Détail)</p></div>
                             <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/estaou/Salle a manger-1300.JPG" alt="Salle à Manger"><p>Salle à manger</p></div>
@@ -461,7 +247,7 @@
                         </div>
                     </div>
 
-                    <!-- 2. LES CHAMBRES -->
+                    <!-- CHAMBRES -->
                     <div class="piece-section">
                         <h4>🛏️ Les Chambres</h4>
                         <div class="galerie-grid">
@@ -495,7 +281,7 @@
                         </div>
                     </div>
 
-                    <!-- 3. SANITAIRES -->
+                    <!-- SANITAIRES -->
                     <div class="piece-section">
                         <h4>🚿 Sanitaires</h4>
                         <div class="galerie-grid">
@@ -504,7 +290,7 @@
                         </div>
                     </div>
 
-                    <!-- 4. EXTÉRIEURS -->
+                    <!-- EXTÉRIEURS -->
                     <div class="piece-section">
                         <h4>🌳 Extérieurs & Vues</h4>
                         <div class="galerie-grid">
@@ -517,29 +303,18 @@
                             <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/estaou/MXTJ9388.JPG" alt="Vue"><p>Vue extérieure</p></div>
                         </div>
                     </div>
-
                 </section>
 
                  <section id="localisation">
                     <h3>Localisation</h3>
                     <p><strong>Adresse exacte :</strong> 1015 Chemin de la Méjeanne, 43490 Arlempdes</p>
-                    
-                    <!-- Carte Google Maps en vue Satellite/Hybride -->
                     <div style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden; margin-top: 15px; border: 1px solid #eee;">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0" 
-                            loading="lazy" 
-                            allowfullscreen
-                            src="https://maps.google.com/maps?q=1015%20Chemin%20de%20la%20Mejeanne%2C%2043490%20Arlempdes&t=k&z=17&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
+                        <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=1015%20Chemin%20de%20la%20Mejeanne%2C%2043490%20Arlempdes&t=k&z=17&ie=UTF8&iwloc=&output=embed"></iframe>
                     </div>
-                    <p style="font-size: 0.9em; color: #666; margin-top: 5px;"><em>Vue satellite du gîte L'Estaou (Hameau le Suc).</em></p>
                 </section>
             </div>
 
-            <!-- Colonne Droite : Infos Séjour (Sticky) -->
+            <!-- Colonne Droite (Sticky) -->
             <aside class="colonne-laterale">
                 <div class="carte-resa">
                     <h3>Votre séjour</h3>
@@ -552,7 +327,6 @@
                         <a href="#tarifs" style="color:#29612c; text-decoration: underline;">Voir le détail des tarifs</a>
                     </p>
                 </div>
-                
             </aside>
 
         </div>
@@ -571,26 +345,25 @@
         <a class="next-slide" onclick="changeSlide(1)">&#10095;</a>
     </div>
 
-    <!-- SCRIPT INDISPENSABLE POUR AFFICHER LE MENU ET LE PIED DE PAGE + LIGHTBOX -->
+    <!-- SCRIPT INDISPENSABLE -->
     <script src="layout.js"></script>
     <script>
-        // SCRIPT POUR LA LIGHTBOX
         const images = document.querySelectorAll('.clickable-img');
         const modal = document.getElementById('lightbox');
         const modalImg = document.getElementById("lightbox-img");
         const captionText = document.getElementById("caption");
+        const span = document.getElementsByClassName("close-modal")[0];
         let currentIndex = 0;
 
         images.forEach((img, index) => {
             img.addEventListener('click', function() {
                 modal.style.display = "block";
                 modalImg.src = this.src;
-                captionText.innerHTML = this.alt || ""; 
-                currentIndex = index; 
+                captionText.innerHTML = this.alt;
+                currentIndex = index;
             });
         });
 
-        const span = document.getElementsByClassName("close-modal")[0];
         span.onclick = function() { modal.style.display = "none"; }
         modal.onclick = function(event) { if (event.target === modal) modal.style.display = "none"; }
 
@@ -598,9 +371,8 @@
             currentIndex += n;
             if (currentIndex >= images.length) currentIndex = 0;
             if (currentIndex < 0) currentIndex = images.length - 1;
-            const nextImg = images[currentIndex];
-            modalImg.src = nextImg.src;
-            captionText.innerHTML = nextImg.alt || "";
+            modalImg.src = images[currentIndex].src;
+            captionText.innerHTML = images[currentIndex].alt;
         }
 
         document.addEventListener('keydown', function(event) {
