@@ -7,19 +7,14 @@
     <!-- =========================================
          OPTIMISATION SEO (RÉFÉRENCEMENT)
          ========================================= -->
-    <!-- TITRE -->
     <title>Gîte Le Rabiouze - Location Groupe 15 personnes (22 couchages) à Arlempdes (43)</title>
+    <meta name="description" content="Louez Le Rabiouze, ancienne bergerie rénovée pour 15-22 personnes au Hameau le Suc, Arlempdes. 330m², 8 chambres, 4 épis. Accessible PMR. Idéal grands groupes.">
+    <meta name="keywords" content="gite le rabiouze arlempdes, gite 15 personnes haute loire, gite groupe auvergne, location hameau le suc, ancienne bergerie, gite 4 épis, gite pmr haute loire">
 
-    <!-- DESCRIPTION -->
-    <meta name="description" content="Louez Le Rabiouze, ancienne bergerie rénovée pour 15-22 personnes au Hameau le Suc, Arlempdes. 330m², 8 chambres, 4 épis. Idéal grands groupes et nature.">
-
-    <!-- MOTS-CLÉS -->
-    <meta name="keywords" content="gite le rabiouze arlempdes, gite 15 personnes haute loire, gite groupe auvergne, location hameau le suc, ancienne bergerie, gite 4 épis, gite grande capacité">
-
-    <!-- OPEN GRAPH -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Gîte Le Rabiouze - 15 personnes en Haute-Loire">
     <meta property="og:description" content="Ancienne bergerie de 330m² pour vos réunions de famille. 8 chambres, grand confort (4 épis), calme absolu au Hameau le Suc.">
-    <meta property="og:image" content="images/gite3-grand.jpg">
+    <meta property="og:image" content="images/rabiouze/Face avant-retenue-rabiouze-0583.JPG">
     <meta property="og:url" content="https://www.vos-gites-arlempdes.fr/rabiouze.html">
     <meta property="og:type" content="website">
 
@@ -27,12 +22,12 @@
     <style>
         /* Style pour les sections de pièces */
         .piece-section {
-            margin-bottom: 40px;
+            margin-bottom: 40px; /* Espace entre les groupes de photos */
         }
         
         .piece-section h4 {
             color: #29612c;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #eee; /* Petite ligne de séparation */
             padding-bottom: 8px;
             margin-bottom: 15px;
             font-size: 1.2em;
@@ -41,8 +36,9 @@
         /* Grille photo ajustée */
         .galerie-grid {
             display: grid;
+            /* On met 180px min pour essayer d'en caser 4 ou 5 par ligne sur PC */
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
+            gap: 10px; /* Espace plus fin entre les photos */
         }
 
         .photo-item {
@@ -51,12 +47,12 @@
 
         .photo-item img {
             width: 100%;
-            height: 160px;
+            height: 160px; /* Hauteur un peu plus petite pour voir plus de photos */
             object-fit: cover;
             border-radius: 6px;
             transition: transform 0.3s;
-            cursor: pointer;
-            background-color: #eee;
+            cursor: pointer; /* Indique qu'on peut cliquer */
+            background-color: #eee; /* Gris clair en attendant l'image */
         }
 
         .photo-item img:hover {
@@ -73,37 +69,188 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        
+        /* TABLEAU DES TARIFS (Style amélioré) */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .tarifs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 500px; /* Pour éviter que ça s'écrase trop sur mobile */
+        }
+        
+        .tarifs-table th {
+            background-color: #29612c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .tarifs-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .tarifs-table tr:nth-child(even) {
+            background-color: #f9fbf9;
+        }
+        
+        .tarifs-table tr:hover {
+            background-color: #f1f8e9;
+        }
+        
+        .saison-detail {
+            font-size: 0.85em;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+            font-style: italic;
+        }
 
-        /* LIGHTBOX STYLES */
+        /* LISTE DES OPTIONS */
+        .options-list {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-top: 20px;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px 40px;
+        }
+        
+        .option-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 5px;
+            align-items: baseline;
+        }
+        
+        .option-item strong {
+            color: #29612c;
+        }
+
+        .tarif-note { 
+            font-size: 0.9em; 
+            background: #fff8e1; 
+            border-left: 4px solid #ffb74d;
+            padding: 15px; 
+            border-radius: 4px; 
+            margin-top: 20px; 
+            color: #5d4037; 
+        }
+
+        /* =========================================
+           STYLE DE LA LIGHTBOX (VUE AGRANDIE)
+           ========================================= */
         .modal {
-            display: none; position: fixed; z-index: 2000; padding-top: 50px;
-            left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
+            display: none; /* Caché par défaut */
+            position: fixed;
+            z-index: 2000; /* Au-dessus de tout */
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9); /* Fond noir opaque */
         }
+
+        /* L'image en grand */
         .modal-content {
-            margin: auto; display: block; max-width: 90%; max-height: 85vh;
-            border-radius: 4px; object-fit: contain;
-            animation-name: zoom; animation-duration: 0.6s;
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh; /* 85% de la hauteur de l'écran */
+            border-radius: 4px;
+            object-fit: contain;
         }
+
+        /* Légende */
         #caption {
-            margin: auto; display: block; width: 80%; max-width: 700px;
-            text-align: center; color: #ccc; padding: 10px 0; height: 150px;
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
         }
+
+        /* Bouton Fermer (X) */
         .close-modal {
-            position: absolute; top: 15px; right: 35px; color: #f1f1f1;
-            font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer;
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
         }
-        .close-modal:hover { color: #bbb; }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Boutons Précédent / Suivant */
         .prev-slide, .next-slide {
-            cursor: pointer; position: absolute; top: 50%; width: auto;
-            padding: 16px; margin-top: -50px; color: white; font-weight: bold;
-            font-size: 20px; transition: 0.6s ease; border-radius: 0 3px 3px 0;
-            user-select: none; background-color: rgba(0,0,0,0.3);
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3); /* Fond léger pour voir les flèches */
         }
-        .next-slide { right: 0; border-radius: 3px 0 0 3px; }
-        .prev-slide { left: 0; border-radius: 3px 0 0 3px; }
-        .prev-slide:hover, .next-slide:hover { background-color: rgba(0,0,0,0.8); }
-        @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+
+        .next-slide {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev-slide {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev-slide:hover, .next-slide:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Animation zoom */
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
     </style>
 </head>
 <body>
@@ -116,55 +263,147 @@
         <!-- En-tête du gîte -->
         <section class="gite-header">
             <h2>Le Rabiouze 🌾🌾🌾🌾</h2>
-            <p class="localisation">📍 Hameau le Suc - Arlempdes (43) | Ref : H43G023327</p>
+            <p class="localisation">📍 Hameau le Suc - 85 Impasse Le Garay - Arlempdes (43) | Ref : H43G023327</p>
         </section>
 
-        <!-- Galerie Photos (Résumé en haut) -->
+        <!-- Galerie Photos (Résumé) -->
         <section class="galerie">
             <div class="photo-principale">
-                <img class="clickable-img" src="images/gite3-grand.jpg" alt="Façade du gîte Le Rabiouze">
+                <img class="clickable-img" src="images/rabiouze/Face avant-retenue-rabiouze-0583.JPG" alt="Façade du gîte Le Rabiouze">
             </div>
             <div class="photos-secondaires">
-                <img class="clickable-img" src="images/gite3-cuisine.jpg" alt="Cuisine" onerror="this.src='images/gite3-grand.jpg'">
-                <img class="clickable-img" src="images/gite3-salon.jpg" alt="Salon" onerror="this.src='images/gite3-grand.jpg'">
+                <img class="clickable-img" src="images/rabiouze/Cuisine a-938.JPG" alt="Cuisine" onerror="this.src='images/gite3-grand.jpg'">
+                <img class="clickable-img" src="images/rabiouze/Salon principal a-937.JPG" alt="Salon" onerror="this.src='images/gite3-grand.jpg'">
             </div>
         </section>
 
         <!-- Infos clés -->
         <section class="infos-cles">
-            <span>👥 15 personnes / 22 couchages</span>
+            <span>👥 15 pers / 22 couchages</span>
             <span>🛏️ 8 chambres</span>
             <span>📐 330 m²</span>
+            <span>♿ Accessible PMR</span>
             <span>🐾 Animaux acceptés</span>
         </section>
 
         <div class="contenu-page">
             
-            <!-- Colonne Gauche : Description et Détails -->
+            <!-- Colonne Gauche -->
             <div class="colonne-principale">
                 
                 <section id="description">
                     <h3>Description</h3>
                     <p>
-                        C'est à 2h de Lyon et de Clermont-Ferrand que se trouve le village d'Arlempdes, réputé pour son château dominant la Loire. Ici, le célèbre fleuve est encore pur et sauvage !
+                        <strong>Bergerie en pierres rénovée</strong>, le gîte 4 épis "Le Rabiouze" peut accueillir 15 personnes max (22 couchages) sur 330 m².
+                        Situé au cœur du lieu-dit "Le Suc" (altitude 930m), sur la commune d'Arlempdes (classé "Plus Beaux Villages de France").
                     </p>
                     <p>
-                        Situé dans le hameau calme "Le Suc", <strong>Le Rabiouze</strong> vous accueille dans une ancienne bergerie familiale (moutons) en pierres apparentes, entièrement rénovée (Janvier 2023).
-                    </p>
-                    <p>
-                        Le gîte siège sur <strong>530 m² de terrain clos</strong>. L'entrée se fait sur la vaste pièce principale avec cuisine ouverte sur la salle de séjour et le salon. Les grands espaces permettent d'être à l'aise pour les réunions de famille ou entre amis.
+                        Mon frère et moi avons rénové avec soin cet ancien corps de ferme de 1798. Le RDC est accessible aux personnes handicapées (moteur, auditif, mental, visuel).
                     </p>
                     
-                    <h4>Agencement :</h4>
-                    <ul>
-                        <li><strong>Rez-de-chaussée :</strong> Grande pièce à vivre, 2 chambres accessibles.</li>
-                        <li><strong>Étages :</strong> 6 autres chambres confortables et sanitaires.</li>
+                    <h4>Agencement (8 chambres, 6 salles d'eau, 5 WC) :</h4>
+                    <ul style="line-height:1.6;">
+                        <li><strong>RDC (Accessible PMR) :</strong>
+                            <br>• Grand salon-séjour, cuisine ouverte sur terrasse en "calades".
+                            <br>• Table de repas de 5m.
+                            <br>• <strong>Chambre 1 "Cabistou" :</strong> 2 couchages (160) + salle d'eau.
+                            <br>• <strong>Chambre 2 "Biberon" (PMR) :</strong> 2 couchages (160) + salle d'eau privative adaptée.
+                        </li>
+                        <li><strong>Étage :</strong>
+                            <br>• <strong>Chambre 3 "Blanche" :</strong> 2 couchages (160) + SDE/WC.
+                            <br>• <strong>Chambre 4 "Noire" :</strong> 4 couchages (160 + 140) + SDE/WC.
+                            <br>• <strong>Chambre 5/6 "Moissons" :</strong> 5 couchages (2x160 + 90) + SDE.
+                            <br>• <strong>Chambre 7 :</strong> 3 couchages (160 + 90).
+                            <br>• <strong>Chambre 8 "Tracteurs" :</strong> 4 couchages (160 + 2x90).
+                            <br>• Salle de bain (baignoire, douche), WC indépendant.
+                        </li>
                     </ul>
                     
-                    <!-- Bloc Hôte -->
                     <div class="hote-box">
-                        <p>Vos hôtes : <strong>Henri et Laurent</strong></p>
-                        <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France® depuis 2023.</p>
+                        <p>Vos hôtes : <strong>Laurent et Henry BOYER</strong></p>
+                        <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France® 4 épis.</p>
+                    </div>
+                </section>
+
+                <!-- SECTION TARIFS & PLANNING -->
+                <section id="tarifs">
+                    <h3>Tarifs & Disponibilités 2025</h3>
+                    
+                    <!-- CALENDRIER GÉNÉRÉ DEPUIS LE LIEN ICS -->
+                    <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white;">
+                        <div style="background-color: #29612c; color: white; padding: 10px; text-align: center; font-weight: bold;">
+                            📅 Planning des disponibilités
+                        </div>
+                        <iframe 
+                            src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fplanning.grandsgites.com%2Fical%2F651acf877100f.ics&skin=fs&tab=month&start_date=now&language=fr&color=gray&v=2" 
+                            width="100%" 
+                            height="500" 
+                            style="border:none;"
+                            title="Calendrier Rabiouze"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
+                        </iframe>
+                    </div>
+
+                    <!-- TABLEAU DES PRIX -->
+                    <div class="table-responsive">
+                        <table class="tarifs-table">
+                            <thead>
+                                <tr>
+                                    <th>Saison</th>
+                                    <th>Semaine</th>
+                                    <th>Week-end (2 nuits)</th>
+                                    <th>Week-end (1 nuit)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Basse Saison
+                                        <span class="saison-detail">Autres périodes</span>
+                                    </td>
+                                    <td>1400 €</td>
+                                    <td>1400 €</td>
+                                    <td>1300 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Moyenne Saison
+                                        <span class="saison-detail">Mai, Juin, Sept, Vac. Scolaires</span>
+                                    </td>
+                                    <td>1700 €</td>
+                                    <td>1400 €</td>
+                                    <td>1300 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Haute Saison
+                                        <span class="saison-detail">Juillet, Août, Noël, Nouvel An</span>
+                                    </td>
+                                    <td>2700 €</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size:0.9em; font-style:italic; text-align:right;">* Tarifs hors ménage et chauffage</p>
+
+                    <!-- LISTE DES OPTIONS -->
+                    <div class="options-list">
+                        <h4>Suppléments & Options</h4>
+                        <div class="options-grid">
+                            <div class="option-item"><span>🧹 Ménage fin de séjour (Obligatoire)</span> <strong>150 €</strong></div>
+                            <div class="option-item"><span>🔥 Chauffage (Granules)</span> <strong>150 € / sem<br><small>(120 € / WE)</small></strong></div>
+                            <div class="option-item"><span>🏛️ Taxe de séjour</span> <strong>1,10 € / adulte / nuit</strong></div>
+                            <div class="option-item"><span>🛏️ Location draps</span> <strong>15 € / lit</strong></div>
+                            <div class="option-item"><span>🧖‍♀️ Linge de toilette</span> <strong>15 € / pers</strong></div>
+                            <div class="option-item"><span>🐾 Supplément Chien</span> <strong>30 € / séjour</strong></div>
+                            <div class="option-item"><span>🔒 Caution</span> <strong>600 €</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="tarif-note">
+                        <strong>💳 Paiements acceptés :</strong> Chèques, Espèces, Virements. (Pas de Chèques Vacances)
                     </div>
                 </section>
 
@@ -174,25 +413,20 @@
                         <div style="flex: 1; min-width: 200px;">
                             <h4>🏠 Intérieur</h4>
                             <ul>
-                                <li>Télévision</li>
+                                <li>Piano de cuisson 5 feux</li>
                                 <li>Lave-vaisselle & Lave-linge</li>
-                                <li>Micro-ondes & Congélateur</li>
+                                <li>TV écran plat, DVD, Hifi</li>
                                 <li>Chauffage central</li>
                             </ul>
                         </div>
                         <div style="flex: 1; min-width: 200px;">
                             <h4>🌳 Extérieur</h4>
                             <ul>
-                                <li>Jardin clos & Terrain privé (530 m²)</li>
-                                <li>Terrasse & Barbecue</li>
-                                <li>Parking privé</li>
+                                <li>Terrain clos (600 m²)</li>
+                                <li>Plusieurs terrasses (Sud/Ouest/Nord)</li>
+                                <li>Garage vélos/motos</li>
                             </ul>
                         </div>
-                    </div>
-                    
-                    <div style="margin-top: 15px;">
-                        <h4>🚿 Sanitaires</h4>
-                        <p>1 Salle de bain (Sdb), 5 Salles d'eau (Sde), 5 WC.</p>
                     </div>
                 </section>
                 
@@ -202,42 +436,57 @@
                         <div class="theme-item">🌲 Ecogîte</div>
                         <div class="theme-item">♿ Tourisme & Handicap</div>
                         <div class="theme-item">⛰️ Montagne</div>
-                        <div class="theme-item">🎿 Ski (19 km)</div>
-                        <div class="theme-item">💻 Télétravail</div>
+                        <div class="theme-item">🎿 Ski (25 km)</div>
+                        <div class="theme-item">🎣 Pêche</div>
                     </div>
                 </section>
 
-                <!-- NOUVELLE SECTION : VISITE DÉTAILLÉE -->
+                <!-- GALERIE -->
                 <section id="galerie-complete">
                     <h3>Visite détaillée</h3>
                     <p>Cliquez sur une image pour l'agrandir :</p>
                     
-                    <!-- 1. PIÈCES DE VIE -->
+                    <!-- PIÈCES DE VIE -->
                     <div class="piece-section">
-                        <h4>🛋️ Salon, Salle à manger & Cuisine</h4>
+                        <h4>🛋️ Salon & Cuisine</h4>
                         <div class="galerie-grid">
-                            <!-- Images (Placeholders en attendant les vraies photos) -->
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-salon.jpg" alt="Salon" onerror="this.src='images/gite3-grand.jpg'"><p>Salon</p></div>
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-cuisine.jpg" alt="Cuisine" onerror="this.src='images/gite3-grand.jpg'"><p>Cuisine</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Salon principal a-937.JPG" alt="Salon"><p>Salon</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Salon principal b-949.JPG" alt="Salon"><p>Coin TV</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Salle a manger a-950.JPG" alt="Repas"><p>Table 5m</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Cuisine a-938.JPG" alt="Cuisine"><p>Cuisine</p></div>
                         </div>
                     </div>
 
-                    <!-- 2. LES CHAMBRES -->
+                    <!-- CHAMBRES -->
                     <div class="piece-section">
-                        <h4>🛏️ Les Chambres (8)</h4>
+                        <h4>🛏️ Les Chambres</h4>
                         <div class="galerie-grid">
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-chambre1.jpg" alt="Chambre 1" onerror="this.src='images/gite3-grand.jpg'"><p>Chambre 1</p></div>
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-chambre2.jpg" alt="Chambre 2" onerror="this.src='images/gite3-grand.jpg'"><p>Chambre 2</p></div>
-                            <!-- Continue pour les autres chambres -->
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre & Sde cabistou a-909.JPG" alt="Chambre 1"><p>Chambre 1 Cabistou</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre et sde Biberon a-1140.JPG" alt="Chambre 2"><p>Chambre 2 Biberon (PMR)</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre et Sde Blanche de lozere a-1044.JPG" alt="Chambre 3"><p>Chambre 3 Blanche</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre et sde Noire du velay a-1056.JPG" alt="Chambre 4"><p>Chambre 4 Noire</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre moissons et bles a-1028.JPG" alt="Chambre 5/6"><p>Chambre 5/6 Moissons</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Chambre Tracteurs a-1078.JPG" alt="Chambre 8"><p>Chambre 8 Tracteurs</p></div>
                         </div>
                     </div>
 
-                    <!-- 3. EXTÉRIEURS -->
+                    <!-- SANITAIRES -->
+                    <div class="piece-section">
+                        <h4>🚿 Sanitaires</h4>
+                        <div class="galerie-grid">
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Sdb tracteur remorque a-1097.JPG" alt="SDB"><p>Salle de bain</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Sde Moissons et blés a-1016.JPG" alt="SDE"><p>Salle d'eau</p></div>
+                        </div>
+                    </div>
+
+                    <!-- EXTÉRIEURS -->
                     <div class="piece-section">
                         <h4>🌳 Extérieurs</h4>
                         <div class="galerie-grid">
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-jardin.jpg" alt="Jardin" onerror="this.src='images/gite3-grand.jpg'"><p>Jardin</p></div>
-                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/gite3-terrasse.jpg" alt="Terrasse" onerror="this.src='images/gite3-grand.jpg'"><p>Terrasse</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Face avant-retenue-rabiouze-0583.JPG" alt="Façade"><p>Façade</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Vue externe face gite-828.JPG" alt="Extérieur"><p>Vue Extérieure</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Terrasse Nord - au frais-919.JPG" alt="Terrasse"><p>Terrasse Nord</p></div>
+                            <div class="photo-item"><img class="clickable-img" loading="lazy" decoding="async" src="images/rabiouze/Terrasse Ouest dany-565.JPG" alt="Terrasse"><p>Terrasse Ouest</p></div>
                         </div>
                     </div>
 
@@ -245,54 +494,25 @@
 
                  <section id="localisation">
                     <h3>Localisation</h3>
-                    <p><strong>Adresse exacte :</strong> 85 Impasse le Garay, 43490 Arlempdes</p>
-                    
-                    <!-- Carte Google Maps centrée sur l'adresse précise -->
+                    <p><strong>Adresse exacte :</strong> 85 Impasse Le Garay, 43490 Arlempdes</p>
                     <div style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden; margin-top: 15px; border: 1px solid #eee;">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0" 
-                            loading="lazy" 
-                            allowfullscreen
-                            src="https://maps.google.com/maps?q=85%20Impasse%20le%20Garay%2C%2043490%20Arlempdes&t=k&z=18&ie=UTF8&iwloc=&output=embed">
-                        </iframe>
+                        <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=85%20Impasse%20le%20Garay%2C%2043490%20Arlempdes&t=k&z=17&ie=UTF8&iwloc=&output=embed"></iframe>
                     </div>
-                    <p style="font-size: 0.9em; color: #666; margin-top: 5px;"><em>Vue satellite du gîte Le Rabiouze.</em></p>
                 </section>
             </div>
 
-            <!-- Colonne Droite : Infos Séjour (Sticky) -->
+            <!-- Colonne Droite (Sticky) -->
             <aside class="colonne-laterale">
                 <div class="carte-resa">
                     <h3>Votre séjour</h3>
-                    <p>Logement entier (15 pers.)</p>
+                    <p>Logement entier (15-22 pers.)</p>
                     <p class="prix">À partir de <strong>295 €</strong> / nuit</p>
-                    
-                    <div class="dates-simul">
-                        <p>📅 Arrivée — 📅 Départ</p>
-                    </div>
 
-                    <a href="contact.html" class="btn btn-full">Demander une réservation</a>
-                    <p class="small-text">Contactez-nous directement ou passez par l'agence (09 78 35 01 65)</p>
-                    
-                    <hr>
-                    
-                    <div style="text-align: left; font-size: 0.9em; margin-top: 15px;">
-                        <p><strong>🛠️ Options (non inclus) :</strong><br>
-                        - Draps 1 pers : 15 € / paire<br>
-                        - Draps 2 pers : 15 € / paire<br>
-                        - Linge de toilette : 15 € / pers<br>
-                        - Linge de maison : 15 € / séjour</p>
-                        
-                        <p><strong>🐾 Animaux :</strong><br>
-                        Supplément 30 € / séjour</p>
-                        
-                        <p><strong>💳 Paiements :</strong><br>
-                        CB, Visa, Espèces, Chèques vacances</p>
-                        
-                        <p><strong>🔒 Caution :</strong> 500 €</p>
-                    </div>
+                    <a href="contact.html" class="btn btn-full">Demander un devis</a>
+                    <p class="small-text">Contactez-nous directement pour négocier</p>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+                        <a href="#tarifs" style="color:#29612c; text-decoration: underline;">Voir le détail des tarifs</a>
+                    </p>
                 </div>
             </aside>
 
@@ -315,7 +535,6 @@
     <!-- SCRIPT INDISPENSABLE -->
     <script src="layout.js"></script>
     <script>
-        // SCRIPT POUR LA LIGHTBOX
         const images = document.querySelectorAll('.clickable-img');
         const modal = document.getElementById('lightbox');
         const modalImg = document.getElementById("lightbox-img");
@@ -326,7 +545,7 @@
             img.addEventListener('click', function() {
                 modal.style.display = "block";
                 modalImg.src = this.src;
-                captionText.innerHTML = this.alt || this.nextElementSibling?.innerText || ""; 
+                captionText.innerHTML = this.alt || ""; 
                 currentIndex = index; 
             });
         });
@@ -341,9 +560,9 @@
             if (currentIndex < 0) currentIndex = images.length - 1;
             const nextImg = images[currentIndex];
             modalImg.src = nextImg.src;
-            captionText.innerHTML = nextImg.alt || nextImg.nextElementSibling?.innerText || "";
+            captionText.innerHTML = nextImg.alt || "";
         }
-
+        
         document.addEventListener('keydown', function(event) {
             if (modal.style.display === "block") {
                 if (event.key === "ArrowLeft") changeSlide(-1);

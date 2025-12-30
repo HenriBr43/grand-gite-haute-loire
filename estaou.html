@@ -74,6 +74,89 @@
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+        
+        /* TABLEAU DES TARIFS (Style amélioré) */
+        .table-responsive {
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .tarifs-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            min-width: 500px; /* Pour éviter que ça s'écrase trop sur mobile */
+        }
+        
+        .tarifs-table th {
+            background-color: #29612c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .tarifs-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+        
+        .tarifs-table tr:nth-child(even) {
+            background-color: #f9fbf9;
+        }
+        
+        .tarifs-table tr:hover {
+            background-color: #f1f8e9;
+        }
+        
+        .saison-detail {
+            font-size: 0.85em;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* LISTE DES OPTIONS */
+        .options-list {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            margin-top: 20px;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px 40px;
+        }
+        
+        .option-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ddd;
+            padding-bottom: 5px;
+            align-items: baseline;
+        }
+        
+        .option-item strong {
+            color: #29612c;
+        }
+
+        .tarif-note { 
+            font-size: 0.9em; 
+            background: #fff8e1; 
+            border-left: 4px solid #ffb74d;
+            padding: 15px; 
+            border-radius: 4px; 
+            margin-top: 20px; 
+            color: #5d4037; 
+        }
 
         /* =========================================
            STYLE DE LA LIGHTBOX (VUE AGRANDIE)
@@ -234,6 +317,92 @@
                         <p style="font-size:0.9em;">Langues parlées : Français, Anglais. Agréé Gîtes de France® depuis 2017.</p>
                     </div>
                 </section>
+                
+                <!-- SECTION TARIFS & PLANNING -->
+                <section id="tarifs">
+                    <h3>Tarifs & Disponibilités 2025</h3>
+                    
+                    <!-- CALENDRIER GÉNÉRÉ DEPUIS LE LIEN ICS -->
+                    <div style="margin-bottom: 30px; border: 1px solid #e0e0e0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: white;">
+                        <div style="background-color: #29612c; color: white; padding: 10px; text-align: center; font-weight: bold;">
+                            📅 Planning des disponibilités
+                        </div>
+                        <!-- Utilisation de 'color=gray' pour forcer le gris et 'v=2' pour forcer le rafraichissement du cache -->
+                        <iframe 
+                            src="https://open-web-calendar.hosted.quelltext.eu/calendar.html?url=https%3A%2F%2Fplanning.grandsgites.com%2Fical%2F651acea50d3d9.ics&skin=fs&tab=month&start_date=now&language=fr&color=gray&v=2" 
+                            width="100%" 
+                            height="500" 
+                            style="border:none;"
+                            title="Calendrier L'Estaou"
+                            sandbox="allow-scripts allow-same-origin allow-popups">
+                        </iframe>
+                    </div>
+
+                    <!-- TABLEAU DES PRIX -->
+                    <div class="table-responsive">
+                        <table class="tarifs-table">
+                            <thead>
+                                <tr>
+                                    <th>Saison</th>
+                                    <th>Semaine</th>
+                                    <th>Week-end (2 nuits)</th>
+                                    <th>Week-end (1 nuit)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Basse Saison
+                                        <span class="saison-detail">Autres périodes</span>
+                                    </td>
+                                    <td>1100 €</td>
+                                    <td>1150 €</td>
+                                    <td>1050 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Moyenne Saison
+                                        <span class="saison-detail">Mai, Juin, Sept, Vac. Scolaires</span>
+                                    </td>
+                                    <td>1400 €</td>
+                                    <td>1150 €</td>
+                                    <td>1050 €</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left; font-weight:bold;">
+                                        Haute Saison
+                                        <span class="saison-detail">Juillet, Août, Noël, Nouvel An</span>
+                                    </td>
+                                    <td>2300 €</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size:0.9em; font-style:italic; text-align:right;">* Tarifs hors ménage et chauffage</p>
+
+                    <!-- LISTE DES OPTIONS -->
+                    <div class="options-list">
+                        <h4>Suppléments & Options</h4>
+                        <div class="options-grid">
+                            <div class="option-item"><span>🧹 Ménage fin de séjour (Obligatoire)</span> <strong>150 €</strong></div>
+                            <div class="option-item"><span>🔥 Chauffage (Granules bois)</span> <strong>150 € / sem<br><small>(120 € / WE)</small></strong></div>
+                            <div class="option-item"><span>🏛️ Taxe de séjour</span> <strong>0,88 € / adulte / nuit</strong></div>
+                            <div class="option-item"><span>🛏️ Location draps</span> <strong>15 € / lit</strong></div>
+                            <div class="option-item"><span>🧖‍♀️ Linge de toilette</span> <strong>15 € / pers</strong></div>
+                            <div class="option-item"><span>🏠 Linge de maison</span> <strong>15 € / séjour</strong></div>
+                            <div class="option-item"><span>🐾 Supplément Chien</span> <strong>30 € / semaine</strong></div>
+                            <div class="option-item"><span>🎉 Location salle festive (60m²)</span> <strong>120 € / période</strong></div>
+                            <div class="option-item"><span>🔒 Caution</span> <strong>600 €</strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="tarif-note">
+                        <strong>💳 Paiements acceptés :</strong> Chèques, Espèces, Virements. (Pas de Chèques Vacances)
+                    </div>
+
+                </section>
 
                 <section id="equipements">
                     <h3>Équipements & Services</h3>
@@ -376,32 +545,14 @@
                     <h3>Votre séjour</h3>
                     <p>Logement entier (15 pers.)</p>
                     <p class="prix">À partir de <strong>243,43 €</strong> / nuit</p>
-                    
-                    <div class="dates-simul">
-                        <p>📅 Arrivée — 📅 Départ</p>
-                    </div>
 
-                    <a href="contact.html" class="btn btn-full">Demander une réservation</a>
-                    <p class="small-text">Contactez-nous directement ou passez par l'agence</p>
-                    
-                    <hr>
-                    
-                    <div style="text-align: left; font-size: 0.9em; margin-top: 15px;">
-                        <p><strong>🛠️ Options (non inclus) :</strong><br>
-                        - Draps 1 pers : 15 € / paire<br>
-                        - Draps 2 pers : 15 € / paire<br>
-                        - Linge de toilette : 15 € / pers<br>
-                        - Linge de maison : 15 € / séjour</p>
-                        
-                        <p><strong>🐾 Animaux :</strong><br>
-                        Supplément 30 € / séjour</p>
-                        
-                        <p><strong>💳 Paiements :</strong><br>
-                        CB, Visa, Espèces, Chèques vacances</p>
-                        
-                        <p><strong>🔒 Caution :</strong> 500 €</p>
-                    </div>
+                    <a href="contact.html" class="btn btn-full">Demander un devis</a>
+                    <p class="small-text">Contactez-nous directement pour négocier</p>
+                    <p style="text-align: center; margin-top: 20px; font-size: 0.9em;">
+                        <a href="#tarifs" style="color:#29612c; text-decoration: underline;">Voir le détail des tarifs</a>
+                    </p>
                 </div>
+                
             </aside>
 
         </div>
@@ -424,67 +575,39 @@
     <script src="layout.js"></script>
     <script>
         // SCRIPT POUR LA LIGHTBOX
-        
-        // 1. On récupère toutes les images cliquables
-        // J'ai ajouté la classe .clickable-img sur les images HTML pour les cibler facilement
         const images = document.querySelectorAll('.clickable-img');
         const modal = document.getElementById('lightbox');
         const modalImg = document.getElementById("lightbox-img");
         const captionText = document.getElementById("caption");
         let currentIndex = 0;
 
-        // 2. On ajoute un événement "click" sur chaque image
         images.forEach((img, index) => {
             img.addEventListener('click', function() {
                 modal.style.display = "block";
                 modalImg.src = this.src;
-                captionText.innerHTML = this.alt || this.nextElementSibling?.innerText || ""; // Prend le alt ou le texte p en dessous
-                currentIndex = index; // On mémorise quelle image est ouverte
+                captionText.innerHTML = this.alt || ""; 
+                currentIndex = index; 
             });
         });
 
-        // 3. Fermer la modale
         const span = document.getElementsByClassName("close-modal")[0];
-        span.onclick = function() { 
-            modal.style.display = "none";
-        }
+        span.onclick = function() { modal.style.display = "none"; }
+        modal.onclick = function(event) { if (event.target === modal) modal.style.display = "none"; }
 
-        // Fermer en cliquant en dehors de l'image
-        modal.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // 4. Navigation (Précédent / Suivant)
         function changeSlide(n) {
             currentIndex += n;
-            
-            // Si on dépasse la fin, on revient au début
-            if (currentIndex >= images.length) {
-                currentIndex = 0;
-            }
-            // Si on est avant le début, on va à la fin
-            if (currentIndex < 0) {
-                currentIndex = images.length - 1;
-            }
-
-            // Mise à jour de l'image et du texte
+            if (currentIndex >= images.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = images.length - 1;
             const nextImg = images[currentIndex];
             modalImg.src = nextImg.src;
-            captionText.innerHTML = nextImg.alt || nextImg.nextElementSibling?.innerText || "";
+            captionText.innerHTML = nextImg.alt || "";
         }
 
-        // 5. Navigation au clavier (Flèches et Echap)
         document.addEventListener('keydown', function(event) {
             if (modal.style.display === "block") {
-                if (event.key === "ArrowLeft") {
-                    changeSlide(-1);
-                } else if (event.key === "ArrowRight") {
-                    changeSlide(1);
-                } else if (event.key === "Escape") {
-                    modal.style.display = "none";
-                }
+                if (event.key === "ArrowLeft") changeSlide(-1);
+                else if (event.key === "ArrowRight") changeSlide(1);
+                else if (event.key === "Escape") modal.style.display = "none";
             }
         });
     </script>
