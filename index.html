@@ -39,7 +39,7 @@
             background-image: url('images/logos/vueSatellite.png');
             background-size: cover;
             background-position: center;
-            opacity: 0.4; /* Effet semi-transparent */
+            opacity: 0.9; /* Effet semi-transparent */
             z-index: -1;
         }
 
@@ -195,6 +195,14 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+
+        /* Petite note (réduire la taille du texte) */
+        .small-note {
+            font-size: 50%;
+            color: #555;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body>
@@ -206,19 +214,20 @@
 
         <!-- Présentation Fusionnée -->
         <section class="presentation-box">
-            <h2>Bienvenue en Haute-Loire</h2>
-            <p>
-                Nous vous proposons <strong>trois gîtes tout confort</strong> situés sur la commune d'Arlempdes (43),
-                village classé parmi les <strong>"Plus Beaux Villages de France"</strong>.
+            <h2><strong>Soyez les bienvenus en Haute-Loire, la pointe sud de l'Auvergne</strong></h2>
+ 
+                Nous vous proposons <strong>trois gîtes tout confort</strong> situés sur la commune d'Arlempdes (43). 
+                <br> Arlempdes est un village classé parmi les <strong>"Plus Beaux Villages de France"</strong>.
+                <br> Nos gîtes sont situés </s> à la pointe sud de l'Auvergne, à quelques kilomètres de l'Ardèche et de la Lozère.
             </p>
             <p style="margin-top: 15px;">
-                <strong>Nos localisations :</strong><br>
-                Le gîte <em>"Les Sources"</em> est niché directement au cœur du <strong>village médiéval</strong>, dans l'enceinte même du château.<br>
-                Les gîtes <em>"L'Estaou"</em> et <em>"Le Rabiouze"</em> sont situés au calme dans le <strong>Hameau le Suc</strong>, à quelques minutes du bourg, en pleine nature.
+             
+                Le gîte <strong><em>"Les Sources"</em></strong> est niché au cœur du <strong>village médiéval Arlempdes</strong>, dans l'enceinte même du château.<br>
+                Les gîtes <strong><em>"L'Estaou"</em></strong> et <strong><em>"Le Rabiouze"</em></strong> sont situés dans le <strong>Hameau le Suc</strong>, à quelques minutes d'Arlempdes.
             </p>
             <p style="margin-top: 15px;">
-                Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel exceptionnel pour des vacances reposantes.
-            </p>
+                <h4>Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel 
+                    exceptionnel pour vos vacances ou évènements à fêter (semaine, WE ou autres).</h4>
         </section>
 
         <!-- Liste des gîtes -->
@@ -229,7 +238,10 @@
                 <img src="images/sources/Face avant-779.JPG" alt="Façade du gîte Les Sources">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte 1 – Les Sources</h3>
+                        <h3>Gîte Les Sources
+                            <br>3 épis
+                            <br>9 pers, 12 couchages
+                        </h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Village d’Arlempdes (43)</span>
                             <span class="ref-tag">Ref : H43G006192</span>
@@ -241,23 +253,33 @@
                             <img src="images/logos/Les_Plus_Beaux_Villages_de_France_logo.png" alt="Plus beau village de France" class="badge-img" style="height:35px;">
                         </div>
 
-                        <div class="badges">
-                            <span class="badge">🏰 Patrimoine</span>
-                            <span class="badge gris">⛰️ Montagne</span>
-                            <span class="badge gris">❄️ Ski</span>
-                            <span class="badge gris">🎣 Pêche</span>
-                        </div>
+                        
 
+                        <div class="badges">
+                        <!-- Infos -->
+                        <div class="themes-grid">
+
+                        <div class="theme-item">🏰 Patrimoine</div>
+                        <div class="theme-item">⛰️ Montagne, randonnées à pieds, VTT, vélo de course</div>
+                        <div class="theme-item">🎿 Ski (20 km)</div>
+                        <div class="theme-item">🎣 Pêche</div>
+                        <div class="theme-item">🏊🏻‍♂️ Baignades, plages de La Loire ou autres lacs à proximité</div>
+                    </div>
+
+                        
                         <!-- Infos -->
                         <ul class="gite-infos">
-                            <li>👥 <strong>9 personnes</strong></li>
-                            <li>🛏️ <strong>3 chambres</strong></li>
-                            <li>📐 <strong>120 m²</strong></li>
+                            <li>👥 <strong>9 pers, 12 couchages</strong>
+                                    <li>7 Lits: 1x90, 4x140,1 lit enfant < 3 ans
+                                    <li>        et 1x140 appoint en mezzanine</li>
+                            <li>🛏️ <strong>3 chambres</strong>&nbsp;(+ mézzanine d'appoint)</li>
+                            <li>📐 <strong>120 m²</strong>&nbsp;habitables</li>
                             <li>🚿 1 Sdb, 1 Sde, 2 WC</li>
                             <li>🐾 Animaux acceptés</li>
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;">Maison en pierres apparentes située exceptionnellement dans l'enceinte des remparts du château fort.</p>
+                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Maison type chalet</strong>, en pierres apparentes, située dans l'enceinte des remparts 
+                            du 1er château fort de la Loire, avec une vue magnifique sur la vallée sauvage de la Loire.</p>
                     </div>
                     <a href="lessources.html" class="btn">Découvrir</a>
                 </div>
@@ -265,10 +287,13 @@
 
             <!-- GÎTE 2 - ESTAOU -->
             <article class="gite">
-                <img src="images/estaou/Face avant retenue-408 bis.JPG" alt="Façade du gîte L'Estaou">
+                <img src="images/estaou/Face avant retenue-408 bis.jpg" alt="Façade du gîte L'Estaou">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte 2 – L’Estaou</h3>
+                        <h3>Gîte L’Estaou
+                            <br>3 épis
+                            <br>15 pers, 19 couchages 
+                            <br>Ecologique & PMR </h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc (43)</span>
                             <span class="ref-tag">Ref : H43G006238</span>
@@ -282,20 +307,39 @@
                         </div>
 
                         <div class="badges">
-                            <span class="badge gris">⛰️ Montagne</span>
-                            <span class="badge gris">❄️ Ski</span>
+                        <!-- Infos -->
+
+                        <div class="theme-item">🌲 Ecogîte</div>
+                        <div class="theme-item">♿ Tourisme & Handicap</div>
+                        <div class="theme-item">🏰 Patrimoine</div>
+                        <div class="theme-item">⛰️ Montagne, randonnées à pieds, VTT, vélo de course</div>
+                        <div class="theme-item">🎿 Ski (20 km)</div>
+                        <div class="theme-item">🎣 Pêche</div>
+                        <div class="theme-item">🏊🏻‍♂️ Baignades, plages de La Loire ou autres lacs à proximité</div>
+                        <div class="theme-item">🪔 Détente, bain nordique 6 personnes</div>
                         </div>
 
                         <!-- Infos -->
                         <ul class="gite-infos">
-                            <li>👥 <strong>15 personnes</strong> / 19 couchages</li>
-                            <li>🛏️ <strong>10 chambres</strong></li>
-                            <li>📐 <strong>350 m²</strong> (dont salle festive)</li>
+                            <li>👥 <strong>15 pers, 19 couchages </strong>
+                                 <li>11 Lits : 2x90, 7x140, 1x160, 1 lit enfant < 3 ans</li>
+                            <li>🛏️ <strong>6/7 chambres </strong>
+                                <li>Une grande chambre séparable par un rideau => 7 chambres</li>
+                            <li>📐 <strong>350 m² </strong>&nbsp;habitables
+                                <li>Incluant une salle festive/salle de jeux de 60 m²</strong></li>
                             <li>🚿 2 Sde, 1 Sdb, 2 WC</li>
                             <li>🐾 Animaux acceptés</li>
+                            <li>🤹🏻‍♀️<strong>60 m² Salle des fêtes-jeux </strong>
+                                <li>Cet espace est uniquement réservable en option par les locataires du gîte. 
+                                Possibilité d'aménager cette salle pour festivités de toute nature. 
+                                Nous avons eu des mariages, des baptêmes, des formations "dentelle du velay", 
+                                des stages de danses, ... </li> 
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne écurie (vaches) en pierres apparentes. Idéal pour les grands groupes avec sa salle festive réservée.</p>
+                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Notre ancienne étable </strong>en pierres apparentes. 
+                            <br> Ce corps de ferme abritait en Rdc une vingtaine de vaches laitières, leurs veaux et à l'étage 
+                            était stocké le fourrage (foin, paille). 
+                            <br> Grand gîte idéal pour les groupes avec une grande salle festive réservable en complément si besoin.</p>
                     </div>
                     <a href="estaou.html" class="btn">Découvrir</a>
                 </div>
@@ -303,10 +347,13 @@
 
             <!-- GÎTE 3 - RABIOUZE -->
             <article class="gite">
-                <img src="images/rabiouze/Face avant-retenue-rabiouze-0583.JPG" alt="Façade du gîte Le Rabiouze">
+                <img src="images/rabiouze/Face avant retenue final -619.JPG" alt="Façade du gîte Le Rabiouze">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte 3 – Le Rabiouze</h3>
+                        <h3>Gîte Le Rabiouze
+                            <br>4 épis
+                            <br>15 pers, 22 couchages
+                            <br>Ecologique & PMR</h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc (43)</span>
                             <span class="ref-tag">Ref : H43G023327</span>
@@ -316,26 +363,37 @@
                         <div class="logos">
                             <img src="images/logos/GiteDeFrance_4Epis.png" alt="4 Épis" class="badge-img">
                             <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
-                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">
+                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">  
+                            
                         </div>
 
                         <div class="badges">
-                            <span class="badge gris">⛰️ Montagne</span>
-                            <span class="badge gris">❄️ Ski</span>
+                        <!-- Infos -->
+                        <div class="themes-grid">
+                        <div class="theme-item">🌲 Ecogîte</div>
+                        <div class="theme-item">♿ Tourisme & Handicap</div>
+                        <div class="theme-item">🏰 Patrimoine</div>
+                        <div class="theme-item">⛰️ Montagne, randonnées à pieds, VTT, vélo de course</div>
+                        <div class="theme-item">🎿 Ski (20 km)</div>
+                        <div class="theme-item">🎣 Pêche</div>
+                        <div class="theme-item">🏊🏻‍♂️ Baignades, plages de La Loire ou autres lacs à proximité</div>
                         </div>
                         
                         <!-- Infos -->
                         <ul class="gite-infos">
-                            <li>👥 <strong>15 personnes</strong> / 22 couchages</li>
-                            <li>🛏️ <strong>13 chambres</strong></li>
-                            <li>📐 <strong>330 m²</strong></li>
+                            <li>👥 <strong>15 pers, 22 couchages</strong>
+                            <li>13 Lits: 4x90, 1x140, 8x160
+                            <li>🛏️ <strong>8 chambres</strong> </li> 
+                            <li>📐 <strong>330 m²</strong> &nbsp; habitables</li>
                             <li>🚿 1 Sdb, 5 Sde, 5 WC</li>
                             <li>🐾 Animaux acceptés</li>
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;">Notre ancienne bergerie (moutons) en pierres apparentes. Grands espaces de vie, idéal pour les réunions de famille.</p>
-                    </div>
-                    <a href="rabiouze.html" class="btn">Découvrir</a>
+                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Notre ancienne bergerie </strong>en pierres apparentes. 
+                            <br>Nous avions dans ce bâtiment une cinquantaine de moutons qui ont été transférés dans la nouvelle bergerie dans les années 1970. 
+                            Ce corps de ferme a ensuite été destiné à stocker le fourrage, les céréales, les pommes de terre et une zone a été conservée pour les agneaux. 
+                            <br>Grands espaces de vie, idéal pour les réunions de famille et les grands groupes.</p>
+                    </div>                    <a href="rabiouze.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
