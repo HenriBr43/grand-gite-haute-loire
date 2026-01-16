@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- =========================================
-         OPTIMISATION SEO (RÉFÉRENCEMENT)
-         ========================================= -->
+    <!-- SEO -->
     <title>Grands Gîtes de Charme en Haute-Loire | Location Vacances à Arlempdes (43)</title>
     <meta name="description" content="Découvrez nos 3 gîtes authentiques (9 à 22 personnes) à Arlempdes, classé 'Plus Beaux Villages de France'. Idéal groupes, familles, randonnée et nature en Auvergne.">
     <meta name="keywords" content="gite haute loire, arlempdes, location vacances 43, gite groupe auvergne, plus beaux villages de france, gite peche, gite randonnée, ecogite, gite montagne, gite famille, grand gite,PMR, Handicap">
@@ -22,7 +20,7 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- STYLE SPÉCIFIQUE À L'ACCUEIL -->
-    <style>
+     <style>
         /* 1. Mise en page générale */
         main {
             max-width: 95% !important;
@@ -39,170 +37,133 @@
             background-image: url('images/logos/vueSatellite.png');
             background-size: cover;
             background-position: center;
-            opacity: 0.9; /* Effet semi-transparent */
+            opacity: 0.9;
             z-index: -1;
         }
 
-        /* 2. Grille des gîtes (3 colonnes) */
+        /* 3. Grille d'Introduction */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* 2/3 Texte, 1/3 Diaporama */
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: stretch !important; /* Force les deux colonnes à la même hauteur */
+        }
+
+        /* Boite de texte (Gauche) */
+        .presentation-box {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 1.05em;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%; /* S'assure qu'elle remplit la grille */
+        }
+        .presentation-box h2 { margin-top: 0; margin-bottom: 15px; font-size: 1.8em; }
+        .presentation-box p { margin-bottom: 10px; line-height: 1.5; }
+
+        /* --- STYLES DU SLIDESHOW (CORRIGÉS ET FIXÉS) --- */
+        .slideshow-container {
+            position: relative;
+            /* HAUTEUR FIXE POUR ÉVITER LES SAUTS D'IMAGE */
+            height: 450px !important; 
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .mySlides {
+            display: none;
+            height: 100%; /* Remplit le conteneur de 450px */
+            width: 100%;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%; /* Force l'image à faire 450px de haut */
+            object-fit: cover !important; /* Coupe l'image si besoin pour remplir sans déformer */
+            object-position: center;
+        }
+
+        /* Effet de fondu */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .6} 
+            to {opacity: 1}
+        }
+
+        /* Boutons Précédent / Suivant */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
+            .gites { grid-template-columns: 1fr; }
+            .intro-grid { grid-template-columns: 1fr; } 
+            /* Hauteur adaptée pour mobile */
+            .slideshow-container { height: 300px !important; } 
+        }
+
+        /* 2. Grille des gîtes */
         .gites {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr; 
             gap: 30px;
         }
-        
-        /* Mobile : 1 colonne */
-        @media (max-width: 1000px) {
-            .gites {
-                grid-template-columns: 1fr;
-            }
-        }
 
-        /* 3. Design de la carte Gîte */
+        /* --- Styles des Cartes Gîtes (inchangés) --- */
         .gite {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            padding: 0;
+            display: flex; flex-direction: column; height: 100%;
+            border-radius: 15px; overflow: hidden; background-color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: transform 0.3s; padding: 0;
         }
+        .gite:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .gite img { width: 100%; height: 300px; object-fit: cover; border-bottom: none; transition: transform 0.5s; margin:0; }
+        .gite:hover img { transform: scale(1.05); }
+        .gite-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; background: white; z-index: 1; position: relative; }
+        .gite h3 { font-size: 1.5em; margin-bottom: 5px; color: #2e7d32; }
 
-        .gite:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Images des cartes */
-        .gite img {
-            height: 300px;
-            width: 100%;
-            object-fit: cover;
-            border-bottom: none;
-            margin: 0;
-            transition: transform 0.5s ease;
-        }
-
-        .gite:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Contenu texte des cartes */
-        .gite-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gite h3 {
-            font-size: 1.5em;
-            margin-bottom: 5px;
-            color: #2e7d32;
-        }
-
-        /* Infos techniques (lits, surface...) */
-        .gite-infos {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-            font-size: 0.9em;
-            color: #555;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-        
-        .gite-infos li {
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-        }
-
-        .localisation-tag {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .ref-tag {
-            font-size: 0.8em;
-            color: #999;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        /* Badges et Logos */
-        .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-            align-items: center;
-        }
-
-        .logos {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            justify-content: flex-start;
-            flex-wrap: nowrap;
-            margin-bottom: 15px;
-            width: auto;
-            max-width: 250px;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
-            border: 1px solid #c8e6c9;
-        }
-
-        .badge.gris {
-            background-color: #f5f5f5;
-            color: #666;
-            border-color: #e0e0e0;
-        }
-
-        .badge-img {
-            height: 25px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-        
-        /* Boite de présentation (Fond blanc pour lisibilité) */
-        .presentation-box {
-            max-width: 1000px;
-            margin: 0 auto 50px auto;
-            text-align: center;
-            font-size: 1.1em;
-            background-color: rgba(255, 255, 255, 0.92);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Petite note (réduire la taille du texte) */
-        .small-note {
-            font-size: 50%;
-            color: #555;
-            display: inline-block;
-            vertical-align: middle;
-        }
+        .gite-infos { list-style: none; padding: 0; margin: 15px 0; font-size: 0.9em; color: #555; background-color: #f9f9f9; padding: 10px; border-radius: 8px; border: 1px solid #eee; }
+        .gite-infos li { margin-bottom: 6px; display: flex; align-items: center; }
+        .localisation-tag { font-size: 0.9em; color: #666; margin-bottom: 5px; display: block; }
+        .ref-tag { font-size: 0.8em; color: #999; display: block; margin-bottom: 10px; }
+        .badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; align-items: center; }
+        .logos { display: flex; gap: 10px; align-items: center; justify-content: flex-start; flex-wrap: nowrap; margin-bottom: 15px; width: auto; max-width: 250px; }
+        .badge { display: inline-block; background-color: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; border: 1px solid #c8e6c9; }
+        .badge.gris { background-color: #f5f5f5; color: #666; border-color: #e0e0e0; }
+        .badge-img { height: 25px; width: auto; object-fit: contain; display: block; }
     </style>
 </head>
 <body>
@@ -212,23 +173,83 @@
 
     <main>
 
-        <!-- Présentation Fusionnée -->
-        <section class="presentation-box">
-            <h2><strong>Soyez les bienvenus en Haute-Loire, la pointe sud de l'Auvergne</strong></h2>
- 
-                Nous vous proposons <strong>trois gîtes tout confort</strong> situés sur la commune d'Arlempdes (43). 
-                <br> Arlempdes est un village classé parmi les <strong>"Plus Beaux Villages de France"</strong>.
-                <br> Nos gîtes sont situés </s> à la pointe sud de l'Auvergne, à quelques kilomètres de l'Ardèche et de la Lozère.
-            </p>
-            <p style="margin-top: 15px;">
-             
-                Le gîte <strong><em>"Les Sources"</em></strong> est niché au cœur du <strong>village médiéval Arlempdes</strong>, dans l'enceinte même du château.<br>
-                Les gîtes <strong><em>"L'Estaou"</em></strong> et <strong><em>"Le Rabiouze"</em></strong> sont situés dans le <strong>Hameau le Suc</strong>, à quelques minutes d'Arlempdes.
-            </p>
-            <p style="margin-top: 15px;">
-                <h4>Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel 
-                    exceptionnel pour vos vacances ou évènements à fêter (semaine, WE ou autres).</h4>
+        <!-- NOUVELLE SECTION D'INTRODUCTION AVEC SLIDESHOW À DROITE -->
+        <section class="intro-grid">
+            <!-- Bloc Texte (2/3 largeur) -->
+            <div class="presentation-box">
+                <h2><strong>Soyez les bienvenus en Haute-Loire, la pointe sud de l'Auvergne</strong></h2>
+                <p>
+                    Nous vous proposons <strong>trois gîtes tout confort</strong> situés sur la commune d'Arlempdes (43). 
+                    <br> Arlempdes est un village classé parmi les <strong>"Plus Beaux Villages de France"</strong>.
+                    <br> Nos gîtes sont situés à la pointe sud de l'Auvergne, à quelques kilomètres de l'Ardèche et de la Lozère.
+                </p>
+                <p>
+                    Le gîte <strong><em>"Les Sources"</em></strong> est niché au cœur du <strong>village médiéval Arlempdes</strong>, dans l'enceinte même du château.<br>
+                    Les gîtes <strong><em>"L'Estaou"</em></strong> et <strong><em>"Le Rabiouze"</em></strong> sont situés dans le <strong>Hameau le Suc</strong>, à quelques minutes d'Arlempdes.
+                </p>
+                <div style="margin-top: 10px;">
+                    <h4>Que vous soyez en famille, entre amis ou en couple, venez profiter de paysages magnifiques et d'un patrimoine naturel 
+                        exceptionnel pour vos vacances ou évènements à fêter (semaine, WE ou autres).</h4>
+                </div>
+            </div>
+
+            <!-- Bloc Slideshow (1/3 largeur) -->
+            <div class="slideshow-container">
+                <!-- Image 1 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes a-839.JPG" alt="Vue sur Arlempdes">
+                </div>
+    
+                <!-- Image 3 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes eglise-905.JPG" alt="Église d'Arlempdes">
+                </div>
+                <!-- Image 4 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes pasage et eglise-869.JPG" alt="Passage typique">
+                </div>
+                <!-- Image 5 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes Plage sable-858.JPG" alt="Plage de sable">
+                </div>
+                <!-- Image 6 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes pont-854.JPG" alt="Le pont">
+                </div>
+                <!-- Image 7 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Arlempdes village-862.JPG" alt="Le village">
+                </div>
+                <!-- Image 8 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/loire-1565300_1280.jpg" alt="La Loire sauvage">
+                </div>
+                <!-- Image 9 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Village Arlempdes-839.JPG" alt="Village d'Arlempdes">
+                </div>
+                <!-- Image 10 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Village Arlempdes-852.JPG" alt="Charme du village">
+                </div>                <!-- Image 12 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Village Arlempdes-867.JPG" alt="Arlempdes">
+                </div>
+                <!-- Image 13 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Village Arlempdes-869.JPG" alt="Maison en pierre">
+                </div>
+                <!-- Image 14 -->
+                <div class="mySlides fade">
+                    <img src="images/hauteloire/Village Arlempdes-870.JPG" alt="Vue Arlempdes">
+                </div>
+
+                <!-- Boutons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
         </section>
+
 
         <!-- Liste des gîtes -->
         <section class="gites">
@@ -238,10 +259,7 @@
                 <img src="images/sources/Face avant-779.JPG" alt="Façade du gîte Les Sources">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte Les Sources
-                            <br>3 épis
-                            <br>9 pers, 12 couchages
-                        </h3>
+                        <h3>Gîte Les Sources<br><span style="font-size:0.7em; color:#666; font-weight:normal;">3 épis | 9 pers (12 couchages)</span></h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Village d’Arlempdes (43)</span>
                             <span class="ref-tag">Ref : H43G006192</span>
@@ -253,33 +271,26 @@
                             <img src="images/logos/Les_Plus_Beaux_Villages_de_France_logo.png" alt="Plus beau village de France" class="badge-img" style="height:35px;">
                         </div>
 
-                        
-
+                        <!-- Badges Uniformisés -->
                         <div class="badges">
-                        <!-- Infos -->
-                        <div class="themes-grid">
+                            <span class="badge">🏰 Patrimoine</span>
+                            <span class="badge gris">⛰️ Montagne & Rando</span>
+                            <span class="badge gris">🎿 Ski (20 km)</span>
+                            <span class="badge gris">🎣 Pêche</span>
+                            <span class="badge gris">🏊🏻‍♂️ Baignades</span>
+                        </div>
 
-                        <div class="theme-item">🏰 Patrimoine</div>
-                        <div class="theme-item">⛰️ Montagne, randonnées à pieds, VTT, vélo de course</div>
-                        <div class="theme-item">🎿 Ski (20 km)</div>
-                        <div class="theme-item">🎣 Pêche</div>
-                        <div class="theme-item">🏊🏻‍♂️ Baignades, plages de La Loire ou autres lacs à proximité</div>
-                    </div>
-
-                        
-                        <!-- Infos -->
+                        <!-- Liste Infos Uniformisée -->
                         <ul class="gite-infos">
-                            <li>👥 <strong>9 pers, 12 couchages</strong>
-                                    <li>7 Lits: 1x90, 4x140,1 lit enfant < 3 ans
-                                    <li>        et 1x140 appoint en mezzanine</li>
-                            <li>🛏️ <strong>3 chambres</strong>&nbsp;(+ mézzanine d'appoint)</li>
+                            <li>👥 <strong>9 pers, 12 couchages</strong></li>
+                            <li><span style="font-size:0.85em; color:#777; margin-left:25px;">7 Lits: 1x90, 4x140, 1 lit enfant < 3 ans et 1x140 appoint</span></li>
+                            <li>🛏️ <strong>3 chambres</strong>&nbsp;(+ mezzanine d'appoint)</li>
                             <li>📐 <strong>120 m²</strong>&nbsp;habitables</li>
                             <li>🚿 1 Sdb, 1 Sde, 2 WC</li>
                             <li>🐾 Animaux acceptés</li>
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Maison type chalet</strong>, en pierres apparentes, située dans l'enceinte des remparts 
-                            du 1er château fort de la Loire, avec une vue magnifique sur la vallée sauvage de la Loire.</p>
+                        <p style="font-size:0.9em; margin-bottom:10px;">Maison type chalet, en pierres apparentes, située dans l'enceinte des remparts du 1er château fort de la Loire, avec une vue magnifique sur la vallée sauvage de la Loire.</p>
                     </div>
                     <a href="lessources.html" class="btn">Découvrir</a>
                 </div>
@@ -345,55 +356,48 @@
                 </div>
             </article>
 
-            <!-- GÎTE 3 - RABIOUZE -->
+           <!-- GÎTE 3 - RABIOUZE -->
             <article class="gite">
                 <img src="images/rabiouze/Face avant retenue final -619.JPG" alt="Façade du gîte Le Rabiouze">
                 <div class="gite-content">
                     <div>
-                        <h3>Gîte Le Rabiouze
-                            <br>4 épis
-                            <br>15 pers, 22 couchages
-                            <br>Ecologique & PMR</h3>
+                        <h3>Gîte Le Rabiouze<br><span style="font-size:0.7em; color:#666; font-weight:normal;">4 épis | 15 pers (22 couchages)</span><br><span style="font-size:0.7em; color:#666; font-weight:normal;">Ecologique & PMR</span></h3>
                         <div style="display:flex; justify-content:space-between; align-items:baseline;">
                             <span class="localisation-tag">📍 Hameau le Suc (43)</span>
                             <span class="ref-tag">Ref : H43G023327</span>
                         </div>
 
-                        <!-- Logos (4 épis) -->
+                        <!-- Logos -->
                         <div class="logos">
                             <img src="images/logos/GiteDeFrance_4Epis.png" alt="4 Épis" class="badge-img">
                             <img src="images/logos/ecogite.jpg" alt="Ecogîte" class="badge-img">
-                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">  
-                            
+                            <img src="images/logos/Label-tourisme-et-handicap.jpg" alt="Handicap" class="badge-img">
                         </div>
 
+                        <!-- Badges Uniformisés -->
                         <div class="badges">
-                        <!-- Infos -->
-                        <div class="themes-grid">
-                        <div class="theme-item">🌲 Ecogîte</div>
-                        <div class="theme-item">♿ Tourisme & Handicap</div>
-                        <div class="theme-item">🏰 Patrimoine</div>
-                        <div class="theme-item">⛰️ Montagne, randonnées à pieds, VTT, vélo de course</div>
-                        <div class="theme-item">🎿 Ski (20 km)</div>
-                        <div class="theme-item">🎣 Pêche</div>
-                        <div class="theme-item">🏊🏻‍♂️ Baignades, plages de La Loire ou autres lacs à proximité</div>
+                            <span class="badge">🌲 Ecogîte & PMR</span>
+                            <span class="badge">🏰 Patrimoine</span>
+                            <span class="badge gris">⛰️ Montagne & Rando</span>
+                            <span class="badge gris">🎿 Ski (20 km)</span>
+                            <span class="badge gris">🎣 Pêche</span>
+                            <span class="badge gris">🏊🏻‍♂️ Baignades</span>
+                            <span class="badge gris">🪔 Bain nordique (Bientôt)</span>
                         </div>
                         
-                        <!-- Infos -->
+                        <!-- Liste Infos Uniformisée -->
                         <ul class="gite-infos">
-                            <li>👥 <strong>15 pers, 22 couchages</strong>
-                            <li>13 Lits: 4x90, 1x140, 8x160
-                            <li>🛏️ <strong>8 chambres</strong> </li> 
-                            <li>📐 <strong>330 m²</strong> &nbsp; habitables</li>
+                            <li>👥 <strong>15 pers, 22 couchages</strong></li>
+                            <li><span style="font-size:0.85em; color:#777; margin-left:25px;">13 Lits: 4x90, 1x140, 8x160</span></li>
+                            <li>🛏️ <strong>8 chambres</strong></li>
+                            <li>📐 <strong>330 m²</strong> habitables</li>
                             <li>🚿 1 Sdb, 5 Sde, 5 WC</li>
                             <li>🐾 Animaux acceptés</li>
                         </ul>
 
-                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Notre ancienne bergerie </strong>en pierres apparentes. 
-                            <br>Nous avions dans ce bâtiment une cinquantaine de moutons qui ont été transférés dans la nouvelle bergerie dans les années 1970. 
-                            Ce corps de ferme a ensuite été destiné à stocker le fourrage, les céréales, les pommes de terre et une zone a été conservée pour les agneaux. 
-                            <br>Grands espaces de vie, idéal pour les réunions de famille et les grands groupes.</p>
-                    </div>                    <a href="rabiouze.html" class="btn">Découvrir</a>
+                        <p style="font-size:0.9em; margin-bottom:10px;"><strong>Notre ancienne bergerie</strong> en pierres apparentes.<br>Grands espaces de vie, idéal pour les réunions de famille et les grands groupes. Rénovée avec soin pour respecter le cachet d'origine.</p>
+                    </div>
+                    <a href="rabiouze.html" class="btn">Découvrir</a>
                 </div>
             </article>
 
@@ -406,6 +410,8 @@
 
     <!-- SCRIPT INDISPENSABLE -->
     <script src="layout.js"></script>
+
+     <script src="slideshow.js"></script>
 
 </body>
 </html>
