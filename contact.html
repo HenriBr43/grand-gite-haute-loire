@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Contactez Henri et Laurent Boyer pour réserver votre gîte en Haute-Loire. Téléphone, email et formulaire de contact.">
-    <link rel="stylesheet" href="css/style.css">
     <title>Contactez nous</title>
-    <style>   
+    <link rel="stylesheet" href="css/style.css">
+    <style>
         /* ANIMATIONS */
         @keyframes fadeInUp {
             from {
@@ -120,7 +119,7 @@
 
         .hotes-photo {
             flex: 1;
-            max-width: 250px; /* Réduit pour une photo plus petite */
+            max-width: 250px;
         }
         
         /* Photo rectangulaire avec bords adoucis */
@@ -176,7 +175,7 @@
             }
             .hotes-photo img {
                 transform: rotate(0deg);
-                max-width: 320px; /* Limite plus petite sur mobile/tablette */
+                max-width: 400px;
             }
         }
     </style>
@@ -188,20 +187,25 @@
 
     <main>
 
-        <!-- SECTION HISTOIRE / PHOTO -->
+        <section class="presentation-box animate-up">
+        </section>
+          <!-- SECTION HISTOIRE / PHOTO -->
         <div class="hotes-section animate-up delay-2">
             <div class="hotes-photo">
-                <!-- Mets ici la photo de henri et laurent -->
-                <img src="images/logos/henri-laurent.jpg" alt="Henri et Laurent Boyer" onerror="this.src='images/logos/vueSatellite.png'">
+                <img src="images/logos/henri-laurent.jpg" alt="Laurent et Henri Boyer" >
             </div>
             <div class="hotes-text">
-                <h3>Bienvenus chez Laurent (à droite sur la photo) et Henri</h3>
+                <h3>Bienvenue chez Laurent et Henri</h3>
                 <p style="margin-bottom: 15px;">
-                    Frères et originaires d'Arlempdes, ce projet nous tenait particulièrement à cœur. Il s’agit de notre <strong>village d’enfance</strong> où nous avons travaillé avec nos parents à la ferme.
+                    Frères et originaires d'Arlempdes, ce projet nous tenait particulièrement à cœur. Il s’agit de notre <strong>village d'enfance</strong> où nous avons travaillé avec nos parents à la ferme.
                 </p>
                 <p style="margin-bottom: 15px;">
+<<<<<<< HEAD
                     Ces réhabilitations sont un moyen pour nous de ne pas laisser à l’abandon ce <strong>patrimoine familial</strong>. 
                     <br>Nous avons rénové ces masures (maison de village - nos anciennes bergerie et étable datant de 1798 et 1882) avec soin, en respectant le cachet d'origine, l'âme des lieux, tout en y apportant le confort moderne et écologique.
+=======
+                    Cette réhabilitation est un moyen pour nous de ne pas laisser à l’abandon ce <strong>patrimoine familial</strong>. Nous avons rénové ces anciennes bergeries et écuries (datant de 1798 et 1882) avec soin, en respectant les pierres apparentes et l'âme des lieux, tout en y apportant le confort moderne et écologique (Label Ecogîte).
+>>>>>>> 34f6e7e89693752142aecc406298a9684999748d
                 </p>
                 <p>
                     Nous serons ravis de vous accueillir au sein de cette belle région.
@@ -210,9 +214,8 @@
                 <a href="decouvrir.html" class="btn-region">🌍 Voir les photos de la région</a>
             </div>
         </div>
-
         <div class="contact-grid">
-            
+          
             <!-- COORDONNÉES -->
             <div class="contact-info-box animate-up delay-1">
                 <h3 style="margin-bottom: 30px; color: #29612c;">Nos Coordonnées</h3>
@@ -232,13 +235,17 @@
                 <div class="contact-item">
                     <span class="contact-icon">📍</span>
                     <p style="color:#666; margin-bottom:5px;">Adresse postale</p>
+<<<<<<< HEAD
                     <strong style="font-size: 1.1em;">Laurent et Henri BOYER, 85 Impasse Le Garay</strong><br>
+=======
+                    <strong style="font-size: 1.1em;">Hameau le Suc</strong><br>
+>>>>>>> 34f6e7e89693752142aecc406298a9684999748d
                     43490 Arlempdes<br>
                     Haute-Loire, Auvergne
                 </div>
             </div>
 
-            <!-- VOS HÔTES (Histoire) - Contenu centré et espacé pour remplir la case -->
+            <!-- VOTRE SÉJOUR (Informations mail) -->
             <div class="contact-info-box animate-up delay-1" style="text-align: center; background: linear-gradient(to bottom right, #ffffff, #f1f8e9);">
                 <span style="font-size: 3em; display: block; margin-bottom: 10px;">🤝</span>
                 <h3 style="margin-bottom: 20px; color: #29612c;">Votre séjour, notre passion</h3>
@@ -248,18 +255,19 @@
                 </p>
                 
                 <div style="background: white; padding: 20px; border-radius: 8px; border: 1px dashed #29612c; margin-bottom: 30px; text-align: left;">
-                    <p style="margin-bottom: 10px; font-weight: bold; color: #29612c; text-align: center;">Pour votre demande, merci de préciser :</p>
+                    <p style="margin-bottom: 10px; font-weight: bold; color: #29612c; text-align: center;">Les informations suivantes seront pré-remplies :</p>
                     <ul style="margin: 0; padding-left: 20px; color: #555;">
-                        <li>🏡 Le gîte qui vous intéresse (Les Sources, L'Estaou, Le Rabiouze)</li>
-                        <li>📅 Les dates souhaitées </li>
+                        <li>📅 Vos dates souhaitées</li>
                         <li>👥 Le nombre de personnes (adultes/enfants)</li>
-                        <li>📧 Votre adresse mail</li>
-                        <li>📞 Votre N° de tél</li>
+                        <li>🏡 Le gîte qui vous intéresse</li>
+                        <li>📧 Votre email & 📞 Téléphone</li>
                     </ul>
                 </div>
 
                 <p>
-                    <a href="mailto:henri-boyer@outlook.fr?subject=Demande de réservation/renseignements, Gîte Arlempdes/Le Suc. Merci de préciser le gîte ciblé (Les Sources, L'Estaou, Le Rabiouze), dates souhaitées, nombre d'adultes et enfants, mail/tel"target="_blank" class="btn btn-full" style="font-size: 1.1em; padding: 15px 30px;">Envoyer une demande par mail</a>
+                    <a href="mailto:henri-boyer@outlook.fr?subject=Demande de réservation Gîte Arlempdes&body=📅 Vos dates souhaitées : %0D%0A👥 Le nombre de personnes (adultes/enfants), pour le calcul des taxes de séjour: %0D%0A🏡 Le gîte qui vous intéresse (les Sources, l'Estaou, le Rabiouze) : %0D%0A📧 Votre adresse mail : %0D%0A📞 Votre N° de tél : " target="_blank" class="btn btn-full" style="font-size: 1.1em; padding: 15px 30px;">
+                        Envoyer une demande par mail
+                    </a>
                 </p>
             </div>
 
